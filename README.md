@@ -1,9 +1,11 @@
-<img width="237" alt="image" src="https://github.com/user-attachments/assets/62b7c3bb-aa9f-409d-b96f-3fdb3b5bbfba" /># Unity学习笔记
+# Unity学习笔记
 
 
 ### 一、为什么要用雪碧图(Sprite)?
 
 Unity官方教程的[2D基础](https://learn.unity.com/pathway/unity-essentials/unit/2d-essentials/tutorial/add-an-animated-pet?version=6)中，使用雪碧图制作宠物。
+
+<img width="237" alt="image" src="https://github.com/user-attachments/assets/62b7c3bb-aa9f-409d-b96f-3fdb3b5bbfba" />
 
 在Web开发中使用雪碧图可以减少Http的请求次数，显而易见的节省资源。但在Unity确实是没办法通过直觉想出雪碧图的明显优势。初步猜想在内存分配上有优势，但不论大图还是多个小图都是离散分配物理内存页，从而否定这一想法。
 
