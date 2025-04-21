@@ -37,7 +37,6 @@ typedef struct {
     int symbol:24,  //symbol the ref should point to
         type:8;     //relocation type, tell the linker how to modify the new ref
 } Elf32_Rel;
-
 ```
 
 介绍每一个section的作用
