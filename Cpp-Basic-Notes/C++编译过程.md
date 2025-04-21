@@ -8,17 +8,37 @@
 - **预处理过程**
   - 由预处理器驱动，
 - **编译过程**
-  - 编译过程中包含词法分析，语法分析，语义分析，中间代码生成，中间代码优化过程，汇编代码生成，汇编代码优化过程。在词法分析过程生成符号表，语法语义分析过程继续填充其中额外的符号信息，例如作用域，符号类型等。
+  - 编译过程中包含词法分析，语法分析，语义分析，中间代码生成，中间代码优化过程，汇编代码生成，汇编代码优化过程。在词法分析过程生成符号表，语法语义分析过程继续填充其中额外的符号信息，例如绑定信息，符号类型等。
 - **汇编过程**
   - 汇编器将汇编代码转化为机器码。其中可重定位表通过编译器和汇编器生成。
 - **链接过程**
-  - 链接过程由链接器主导，将每个独立的.o文件合并为一个可重定位目标文件，对可重定位文件进行重定位，获得执行性文件。
-
-而编译和汇编过程可看做一个编译过程，目的是将cpp源文件转化为一个个独立的.o目标文件。
+  - 链接过程由链接器主导，将每个独立的.o文件合并为一个可重定位目标文件，合并过程称为重定位过程，最终获得执行性文件。
 
 由汇编过程得到的ELF格式的.o目标文件包括以下内容：
 
 ![image](https://github.com/user-attachments/assets/fd2e0e26-ff90-48f4-aa1a-63bcfa49d2bf)
+
+符号表项的结构：
+```
+typedef struct {
+    int name;           //byte offset into str table that points to symbol name
+    int value;          //symbol's addr: section offset, or VM addr
+    int size;           //obj size in bytes
+    char type:4,        //data, func, sec, or src file name (4 bits)
+        binding:4;      //local or global (4 bits)
+    char reserved;      //unused
+    char section;       //section header index, ABS, UNDEF or COMMON
+} Elf_symbol;
+```
+重定位表项的结构：
+```
+typedef struct {
+    int offset;     //offset to the ref to relocate
+    int symbol:24,  //symbol the ref should point to
+        type:8;     //relocation type, tell the linker how to modify the new ref
+} Elf32_Rel;
+
+```
 
 介绍每一个section的作用
 
@@ -49,6 +69,8 @@
    - ```VMA = offset + ADDR(s) // ADDR(s)表示引用或定义的所在节的相对地址```
   
 这样可以简单的实现引用与定义之间的关联。
+
+> 此处没有细致的讨论编译过程和静态链接、动态链接过程，后续会继续补充。
 
 
 
