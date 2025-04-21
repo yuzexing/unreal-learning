@@ -39,7 +39,7 @@ typedef struct {
 } Elf32_Rel;
 ```
 
-介绍每一个section的作用
+每一个section的作用可以[参考](https://docs.oracle.com/cd/E23824_01/html/819-0690/chapter6-46512.html#scrolltoc)
 
 在链接过程中对引用和定义之间关联起到关键作用的两个结构体，一个是符号表，一个是重定位表。
 
