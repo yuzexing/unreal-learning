@@ -7,7 +7,7 @@
 问题一：UVs的作用
 
 
-问题二：过程中遇到Axis and actin mappings are now deprecated, please use Enhanced input Actions and input Mapping Context instead。
+问题二：过程中遇到Axis and action mappings are now deprecated, please use Enhanced input Actions and input Mapping Context instead。
 
 使用[Enhanced Input System](https://www.bilibili.com/video/BV1GEypYKERz/?spm_id_from=333.337.search-card.all.click&vd_source=16b822060153afb61a028379bf440fe8)
 
