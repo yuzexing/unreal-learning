@@ -18,4 +18,12 @@ Enhanced input Actions and input Mapping Context和Axis and Action mapping的最
 2. Input Mapping Context 支持动态的上下文切换，更加灵活的控制操作映射。
 
 
+问题三：emissive color是什么？与base color的区别是什么？
+
+> missive Color 在 UE5 中表示材质的自发光属性，用于让表面在无外部光照下依然可见并发出光芒。它通过材质节点的 Emissive Color 输入引脚输出高动态范围（HDR）颜色值，可以驱动泛光（bloom）效果并在启用 Lumen 全局光照时为场景注入动态光源。与 Base Color 不同，Emissive Color 不受场景光源和阴影影响，但在使用动态或静态 Global Illumination 方法时，仍可以向周围物体投射间接光照。
+
+问题四：蓝图中的FlipBook节点是什么？
+
+> FlipBook是一个用于管理和播放精灵图帧序列的节点。
+
 
