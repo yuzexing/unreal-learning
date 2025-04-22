@@ -11,3 +11,11 @@
 
 使用[Enhanced Input System](https://www.bilibili.com/video/BV1GEypYKERz/?spm_id_from=333.337.search-card.all.click&vd_source=16b822060153afb61a028379bf440fe8)
 
+Enhanced input Actions and input Mapping Context和Axis and Action mapping的最大区别：前者是基于数据资产（data asset)的，而后者是将定义放在配置文件中（deafultInput.ini）
+
+优势：
+1. Enhanced input actions 类似于旧的axis and action mapping，但是通过数据资产管理。
+2. Input Mapping Context 支持动态的上下文切换，更加灵活的控制操作映射。
+
+
+
