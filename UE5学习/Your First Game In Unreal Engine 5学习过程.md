@@ -30,7 +30,9 @@ Enhanced input Actions and input Mapping Context和Axis and Action mapping的最
 
 > 当打开 Absolute Rotation 时，所有的继承选项（Inherit Pitch/Yaw/Roll）都将失效，不再从父组件继承对应轴的旋转，所以不会随着Character的旋转而旋转。
 
+#### 问题六：按照教程的要求设置Character Movement的Orient Rotation to Movement后，为什么没有旋转至移动方向？
 
+> 
 
 
 
