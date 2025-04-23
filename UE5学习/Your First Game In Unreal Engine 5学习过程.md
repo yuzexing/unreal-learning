@@ -32,7 +32,7 @@ Enhanced input Actions and input Mapping Context和Axis and Action mapping的最
 
 #### 问题六：按照教程的要求设置Character Movement的Orient Rotation to Movement后，为什么没有旋转至移动方向？
 
-> 
+> Use Controller Rotation：Yaw 需要关闭，如果是True，则使用playerController的左右旋转，与Orient Rotation to Movement冲突。
 
 
 
