@@ -34,5 +34,17 @@ Enhanced input Actions and input Mapping Context和Axis and Action mapping的最
 
 > Use Controller Rotation：Yaw 需要关闭，如果是True，则使用playerController的左右旋转，与Orient Rotation to Movement冲突。
 
+#### 问题七：Blend Space是什么？与状态机有什么联系？
+> - Blend Space用于两个动画的过度动画；而状态机用于状态的管理；
+> - Blend Space 强调连续与数值，而状态机强调离散与逻辑
+> - 状态机中通常包含Blend Space
+
+#### 问题八：Blend Space -> Analysis -> Horizontal Axis Function中的各个选项代表什么意思？为什么作者选择Locomotion？
+> 不知道哇，待补充
+
+
+
+
+
 
 
