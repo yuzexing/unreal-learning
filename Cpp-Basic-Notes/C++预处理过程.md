@@ -22,7 +22,7 @@ EMPTY // not a include preprocessing directive
 ```
 > 原因：预处理器对**预处理指令**进行**单次扫描**，避免递归，减少复杂度，提高可维护性，
 > - tips预处理器虽然是会多次扫描代码，用于宏展开，但是并不会继续识别其中预处理指令。
-> - 这里被宏递归展开绕晕了，等以后有了实践经验再理解（也就是为什么#include可以继续识别其中的#include或者其他宏指令，但是宏展开define不行）
+> - 这里被宏递归展开绕晕了，等以后有了实践经验再理解（也就是为什么#include的文件可以继续识别其中的#include或者其他宏指令，但是宏展开#define中包含宏指令就不行）
 
 [Reference1](https://port70.net/~nsz/c/c11/n1570.html#6.10.3.4p3) | [Reference2](https://gcc.gnu.org/onlinedocs/cpp/The-preprocessing-language.html?utm_source=chatgpt.com)
 
