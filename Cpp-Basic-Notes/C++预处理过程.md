@@ -42,7 +42,7 @@ void func() {
 ```
 > 2. 文件作用域
 
-特殊的情况：
+特殊的情况一：
 > 通过```#undef```控制作用域，例如
 ```
 void func() {
@@ -51,8 +51,14 @@ void func() {
   printf("%d\n", VALUE); // 编译报错
 }
 ```
+特殊的情况二：
+> - 在Property Pages -> Configuration Propterties -> C/C++ -> Preprocessor 中定义的宏
+> - ![image](https://github.com/user-attachments/assets/0e3e71ea-6d67-43ca-ba03-53eba34c32ff)
+> - 相当于在每个翻译单元顶部添加#define x，属于文件作用域
 
-> 
+##### 宏的应用场景
+
+> 常用于进行调试，有较多高级用法例如自定义关键字new用来追踪变量的内存分配情况，待补充
 
 ##### 宏指令和inline的区别
 
