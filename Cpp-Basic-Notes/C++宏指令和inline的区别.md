@@ -1,5 +1,7 @@
 # C++宏指令和inline的区别
-#### 宏指令和inline的区别
 
-> 在学习C++之前，我一直以为inline也是某个宏指令
-> 
+[Reference](https://stackoverflow.com/questions/1137575/inline-functions-vs-preprocessor-macros?utm_source=chatgpt.com)
+
+宏指令中的#include 和#define 与inline函数有些类似，需要细致的区分不同点
+
+
