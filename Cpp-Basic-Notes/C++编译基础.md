@@ -28,6 +28,6 @@ Reference：[Stackoverflow](https://stackoverflow.com/questions/13938089/whats-c
 
 > 1. 函数传递参数的拷贝（参数6个内使用寄存器传递，超过6个的部分使用的栈传递）
 > 2. 保存现场和恢复现场的开销（调用方法前的PC，寄存器数据入栈 以及恢复）
-> 3. 冲刷指令流水
+> 3. 冲刷指令流水线
 
 
