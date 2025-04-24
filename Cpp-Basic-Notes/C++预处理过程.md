@@ -30,6 +30,30 @@ EMPTY   #   include <file.h> // not a preprocessing directive
 
 [Reference](https://en.cppreference.com/w/cpp/preprocessor)
 
+##### 宏定义的作用域
+
+> 可分为两种作用域
+> 1. 块级作用域
+```
+void func() {
+  #define VALUE 10
+  printf("%d\n", VALUE); // 输出 10
+}
+```
+> 2. 文件作用域
+
+特殊的情况：
+> 通过```#undef```控制作用域，例如
+```
+void func() {
+  #define VALUE 10
+  #undef VALUE
+  printf("%d\n", VALUE); // 编译报错
+}
+```
+
+> 
+
 ##### 宏指令和inline的区别
 
 > 待补充
