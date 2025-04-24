@@ -17,9 +17,15 @@ Reference：[Stackoverflow](https://stackoverflow.com/questions/13938089/whats-c
 > 1. 内部函数通常比内联函数更好优化，因为编译器中的优化程序对内部函数拥有更多先验知识。
 > 2. 内部函数由编译器提供，C++程序员不可编写。
 
-##### 1.4：Intrinsic Function 识别并且插入到目标代码的时机？
+##### 1.4：Intrinsic Function 识别和生成的时机？
 
 > 在词法、语法、语义分析中识别
+> 简单的理解为在中间代码生成
 
 ##### 1.5：whole program optimization 将代码生成推迟到链接过程，那么编译阶段输出的结果还是.o文件吗？（待补充，优先级四）
+
+##### 2.1：函数调用的开销有哪些？
+
+> 1. 
+
 
