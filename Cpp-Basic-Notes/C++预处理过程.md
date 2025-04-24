@@ -1,5 +1,7 @@
 # C++预处理过程
 
+[Reference](https://en.cppreference.com/w/cpp/preprocessor)
+
 #### 预处理过程做了什么？
 > 识别文件中所有预处理指令进行翻译，将翻译单元传递给编译器。
 
@@ -15,20 +17,20 @@
 
 Tip：预处理指令不能是来自于宏指令的展开例如：
 ```
-#define EMPTY
-EMPTY   #   include <file.h> // not a preprocessing directive
+#define EMPTY #include <file.h> 
+EMPTY // not a include preprocessing directive
 ```
+> 原因：预处理器对**预处理指令**进行单次扫描，减少复杂度，提高可维护性
+
+[Reference1](https://port70.net/~nsz/c/c11/n1570.html#6.10.3.4p3) | [Reference2](https://gcc.gnu.org/onlinedocs/cpp/The-preprocessing-language.html?utm_source=chatgpt.com)
 
 #### 对预处理器的控制
 > - 通过#pragma 或者 _Pragma 指令进行控制
 > - 例如 ```#pragma once```
 
-
 #### Module的import/export的应用场景是什么？与头文件的区别有哪些？
 
 > 待补充优先级五
-
-[Reference](https://en.cppreference.com/w/cpp/preprocessor)
 
 #### 宏定义的作用域
 
