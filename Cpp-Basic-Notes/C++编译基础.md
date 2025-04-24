@@ -19,8 +19,8 @@ Reference：[Stackoverflow](https://stackoverflow.com/questions/13938089/whats-c
 
 ##### 1.4、Intrinsic Function 识别和生成的时机？
 
-> 在语义分析中识别。
-> 生成的时机可以简单的理解为在中间代码生成和中间代码优化阶段。
+> - 在语义分析中识别。
+> - 生成的时机可以简单的理解为在中间代码生成和中间代码优化阶段。
 
 ##### 1.5、whole program optimization 将代码生成推迟到链接过程，那么编译阶段输出的结果还是.o文件吗？（待补充，优先级四）
 
