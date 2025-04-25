@@ -1,6 +1,6 @@
 # C++宏定义和inline的区别
 
-[Reference1](https://stackoverflow.com/questions/1137575/inline-functions-vs-preprocessor-macros?utm_source=chatgpt.com)
+[Reference1](https://stackoverflow.com/questions/1137575/inline-functions-vs-preprocessor-macros?utm_source=chatgpt.com)|
 [Reference2](https://en.cppreference.com/w/c/language/inline?utm_source=chatgpt.com)
 
 宏定义(#define)与inline函数有些类似，需要细致区分
@@ -14,6 +14,40 @@
 
 ## 2.inline可能不展开的场景
 
+### 2.1递归函数
+```
+inline int add(int n) {
+  if (n <= 0) {
+    return 0;
+  }
+  return add(n - 1) + n;
+}
+```
+原因：递归调用次数未知，编译器无法展开
+问题：如果递归调用**次数已知**，那么是否可以展开？
+回答：可以配置编译器选项，指定展开的次数
+```
+#include <iostream>
+#pragma inline_recursion(on)
+#pragma inline_depth(16)
+
+_inline int add(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    return add(n - 1) + n;
+}
+
+int main() {
+    int i = add(3);
+    std::cout << i << std::endl;
+    return i;
+}
+```
+需要在Inline Function Expansion Ob1或Ob2下递归内联函数
+![image](https://github.com/user-attachments/assets/1b833f42-5529-463d-af54-e5f76a1decfe)
+
+[Reference1](https://learn.microsoft.com/en-us/cpp/preprocessor/inline-recursion?view=msvc-170&utm_source=chatgpt.com)|[Reference2](https://stackoverflow.com/questions/190232/can-a-recursive-function-be-inline)
 
 
 ### 2.1 inline递归函数
