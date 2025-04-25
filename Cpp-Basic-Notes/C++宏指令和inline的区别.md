@@ -91,6 +91,20 @@ int main() {
 ![1745587871714](https://github.com/user-attachments/assets/683aa798-6d78-466a-ba5b-99e45eb5aab9)\
 可以看到正常调用add。\
 
+### 2.5 取函数地址
+```
+inline int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int a = 1, b = 2;
+    int (*ptr)(int, int) = &add;
+    std::cout << ptr(a, b) << std::endl;
+    return 0;
+}
+```
+与2.4同理
 
 3. 对于在编译时确实无法确定地址的指针，无法内联
 ```
