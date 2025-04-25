@@ -28,8 +28,8 @@ inline int add(int n) {
 回答：可以配置编译器选项，指定展开的最大次数
 ```
 #include <iostream>
-#pragma inline_recursion(on)
-#pragma inline_depth(16)
+#pragma inline_recursion(on) // 开启递归函数内联
+#pragma inline_depth(16) // 指定递归函数内联最大深度
 
 _inline int add(int n) {
     if (n <= 0) {
@@ -44,7 +44,8 @@ int main() {
     return i;
 }
 ```
-需要在Inline Function Expansion Ob1或Ob2下递归内联函数
+同时需要在Inline Function Expansion Ob1或Ob2下递归内联函数
+其次也要注意编译器需要为MSVC才行
 ![image](https://github.com/user-attachments/assets/1b833f42-5529-463d-af54-e5f76a1decfe)
 
 [Reference1](https://learn.microsoft.com/en-us/cpp/preprocessor/inline-recursion?view=msvc-170&utm_source=chatgpt.com)|[Reference2](https://stackoverflow.com/questions/190232/can-a-recursive-function-be-inline)
