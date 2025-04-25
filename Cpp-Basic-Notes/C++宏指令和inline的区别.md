@@ -1,4 +1,4 @@
-# C++宏定义和inline的区别
+![image](https://github.com/user-attachments/assets/e776895e-fc99-4ce2-bb80-235334762d92)![image](https://github.com/user-attachments/assets/dd164bb2-deac-434b-aa9a-04f60bea3887)# C++宏定义和inline的区别
 
 [Reference1](https://stackoverflow.com/questions/1137575/inline-functions-vs-preprocessor-macros?utm_source=chatgpt.com)|
 [Reference2](https://en.cppreference.com/w/c/language/inline?utm_source=chatgpt.com)
@@ -41,12 +41,14 @@ _inline int add(int n) {
 int main() {
     int i = add(3);
     std::cout << i << std::endl;
-    return i;
+    return 0;
 }
 ```
 同时需要在Inline Function Expansion Ob1或Ob2下递归内联函数
-其次也要注意编译器需要为MSVC才行
 ![image](https://github.com/user-attachments/assets/1b833f42-5529-463d-af54-e5f76a1decfe)
+
+虽然按照要求配置了，但是在汇编代码中还是能看到call add，待补充为什么不能像文档里一样内联递归函数呢？
+![image](https://github.com/user-attachments/assets/faa146d2-6c6c-40a1-97d5-75961e6ceec6)
 
 [Reference1](https://learn.microsoft.com/en-us/cpp/preprocessor/inline-recursion?view=msvc-170&utm_source=chatgpt.com)|[Reference2](https://stackoverflow.com/questions/190232/can-a-recursive-function-be-inline)
 
