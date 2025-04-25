@@ -42,7 +42,10 @@ Enhanced input Actions and input Mapping Context和Axis and Action mapping的最
 #### 问题八：Blend Space -> Analysis -> Horizontal Axis Function中的各个选项代表什么意思？为什么作者选择Locomotion？
 > 不知道哇，待补充
 
-
+#### 问题九：Rotation中的X/Y/Z分别是什么？
+> 1. X代表Actor中心围绕X轴旋转，（Roll）调整左右倾斜角度，类似于左右侧头
+> 2. Y代表Actor中心围绕Y轴旋转，（Pitch）调整俯仰角，类似于抬头低头
+> 3. Z代表Actor中心围绕Z轴旋转，（Yaw）调整偏航角度，类似于左转右转
 
 
 
