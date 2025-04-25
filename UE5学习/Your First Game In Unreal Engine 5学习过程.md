@@ -38,9 +38,13 @@ Enhanced input Actions and input Mapping Context和Axis and Action mapping的最
 > - Blend Space用于两个动画的过度动画；而状态机用于状态的管理；
 > - Blend Space 强调连续与数值，而状态机强调离散与逻辑
 > - 状态机中通常包含Blend Space
+> - 我的理解：状态机中状态切换虽然也可以设置过渡动画，但是Blend Space给出了更精细的动画过渡控制，两者应该相辅相成。
 
 #### 问题八：Blend Space -> Analysis -> Horizontal Axis Function中的各个选项代表什么意思？为什么作者选择Locomotion？
-> 不知道哇，待补充
+> Locomotion表示基于双足骨骼的运动轨迹估算角色在水平面上的移动速度
+> 没设置Locomotion前，人物做跑步动画可能会产生滑步的效果
+> 设置Locomotion后，人物跑动时，脚会贴着地面，产生脚踏实地的真实感
+> 原理：Locomotion会基于角色双足骨骼在动画过程中的实际运动轨迹来估算其水平移动速度
 
 #### 问题九：Rotation中的X/Y/Z分别是什么？
 > 1. X代表Actor中心围绕X轴旋转，（Roll）调整左右倾斜角度，类似于左右侧头
