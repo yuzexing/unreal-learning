@@ -12,7 +12,7 @@
 #### 预处理器的常见功能有哪些：
 > - **条件编译**源文件的一部分内容，可以通过指令控制```#if, #ifdef, #ifndef, #else, #elif, #elifdef, #elifndef，#endif``` 
 > - **宏展开**，例如指令：```#define #undef```
-> - **文件包含**，例如：```#include``` #pragma once
+> - **文件包含**，例如：```#include```
 > - **产生错误** 例如：```#error``` or ```#warning```,(C++23)
 
 Tip：预处理指令不能是来自于**宏展开**例如：
