@@ -176,7 +176,7 @@ int main() {
 参考[Replacing the Preprocessor in Modern C++](https://learnmoderncpp.com/2023/12/29/replacing-the-preprocessor-in-modern-c/)
 
 
-#### 补充细节
+#### 4.1 补充细节
 
 1. __forceinline覆盖了收益成本分析，而直接内联（可能无法内联递归函数、虚函数、等等编译时期无法确定的函数）
 
@@ -247,6 +247,27 @@ namespace {
 }
 ```
 
+7. 问题未解决：为什么inline函数在链接过程中找不到呢(弱全局符号可以被其他翻译单元识别)？会报链接错误：
+```
+// hello.cpp
+inline int add(int a, int b) {
+    return a + b + 100;
+}
 
+// main.cpp
+#include <iostream>
+inline int add(int a, int b);
+
+int main() {
+    int a = 1, b = 2;
+    std::cout << add(a, b) << std::endl;
+    return 0;
+}
+
+// 1>main.obj : error LNK2019: unresolved external symbol "int __cdecl add(int,int)" (?add@@YAHHH@Z) referenced in function _main
+```
+对于这个问题没有找到原因，只有一个规则来说明每个Inline函数的定义必须出现在引用的翻译单元中：In C++ inline functions must have their body present in every translation unit from which they are called, otherwise the program is ill-formed. (Ref: C++17 [basic.def.odr]/4)
+
+待补充 优先级五
 
 参考[Dangers of linking inline functions](https://gudok.xyz/inline/?utm_source=chatgpt.com)
