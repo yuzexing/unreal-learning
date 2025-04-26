@@ -3,13 +3,13 @@
 #### 说明
 本节讨论的格式为ELF文件格式，主要是为了加深了解程序运行时的内存状态。
 
-可重定位的目标文件包含以下内容：\
+##### 可重定位的目标文件包含以下内容：\
 <picture>
   <img width=400 height=400 src="https://github.com/user-attachments/assets/fd2e0e26-ff90-48f4-aa1a-63bcfa49d2bf">
 </picture>
 
 
-程序内存的经典布局：
+##### 程序内存的经典布局：
 
 <picture>
   <img width=400 height=400 src="https://github.com/user-attachments/assets/0d4d3542-c8e2-465f-8e6e-9c97498cf0c6">
@@ -19,7 +19,7 @@
 |
 [Reference2](https://www.cnblogs.com/zhcpku/p/14437940.html?utm_source=chatgpt.com)
 
-ELF文件中的段包含：
+##### ELF文件中的段包含：
 1. .text段
 2. .data段，.bss段，.rodata段
 3. .rel.text段 .rel.data段
