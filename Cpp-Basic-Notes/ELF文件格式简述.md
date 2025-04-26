@@ -3,12 +3,17 @@
 #### 说明
 本节讨论的格式为ELF文件格式，主要是为了加深了解程序运行时的内存状态。
 
-可重定位的目标文件包含以下内容：
-![image](https://github.com/user-attachments/assets/fd2e0e26-ff90-48f4-aa1a-63bcfa49d2bf)\
+可重定位的目标文件包含以下内容：\
+<picture>
+  <img width=400 height=400 src="https://github.com/user-attachments/assets/fd2e0e26-ff90-48f4-aa1a-63bcfa49d2bf">
+</picture>
+
 
 程序内存的经典布局：
-![This shows the typical layout of a simple computer's program memory with the text, various data, and stack and heap sections.
-](https://upload.wikimedia.org/wikipedia/commons/5/50/Program_memory_layout.pdf)
+
+<picture>
+  <img width=400 height=400 src="https://github.com/user-attachments/assets/0d4d3542-c8e2-465f-8e6e-9c97498cf0c6">
+</picture>
 
 [Reference1](https://refspecs.linuxbase.org/LSB_3.0.0/LSB-Embedded/LSB-Embedded/specialsections.html#:~:text=)
 |
