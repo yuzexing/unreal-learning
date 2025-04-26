@@ -81,6 +81,12 @@ static char a[12];
 
 ### 6. .stack、.heap
 
+堆段包含动态分配的内存，通常从BSS段的末尾开始，并从这里增长到更大地址，直到栈顶
+
+
+堆栈都是进程中的概念，可执行程序中不包括这两个段。
+
+> 待补充 优先级一
 
 [Data segment wikipedia](https://en.wikipedia.org/wiki/Data_segment)
 
