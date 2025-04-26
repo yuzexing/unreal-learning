@@ -1,9 +1,9 @@
-# C++inline和宏定义的区别
+# C++inline和宏展开的区别
 
 [Reference1](https://stackoverflow.com/questions/1137575/inline-functions-vs-preprocessor-macros?utm_source=chatgpt.com)|
 [Reference2](https://en.cppreference.com/w/c/language/inline?utm_source=chatgpt.com)
 
-宏定义(#define)与inline函数有些类似，需要细致区分
+宏定义展开与inline函数有些类似，需要细致区分
 
 ## 1.inline的作用
 **提示**编译器内联展开函数，减少函数调用开销
@@ -164,9 +164,89 @@ int main() {
 
 #### 相同点
 
-- 1
+- 都可能会将一段代码进行展开
 
 
 #### 不同点
 
-- what
+- **展开时机不同**：宏展开为预编译时期；inline展开在编译时期；
+- **应用场景不同**：宏在开发中的功能，逐步被```constexpr```、inline、模板等语言特性代替；而其发挥的场景主要在**头文件保护**，**条件编译**，**调试**等。
+- **展开条件不同**：当宏定义的标识符出现在代码中时，就**一定会被展开**；但是inline的展开依赖于**编译器的收益成本评估**来决定是否展开，其次也不一定能展开递归函数等第二节描述的有条件展开的情况。
+
+参考[Replacing the Preprocessor in Modern C++](https://learnmoderncpp.com/2023/12/29/replacing-the-preprocessor-in-modern-c/)
+
+
+#### 补充细节
+
+1. __forceinline覆盖了收益成本分析，而直接内联（可能无法内联递归函数、虚函数、等等编译时期无法确定的函数）
+
+2. 在C++中，当inline函数不被编译器内联展开时，通过将inline函数标记为弱符号类型，再写入目标文件中，来避免链接过程中的多重定义错误。
+
+3. 符号表中的弱符号只会被保存一份有效的定义，保留的定义可能与目标文件在**链接命令中的顺序**有关（也有听说是随机的）
+
+```
+// source1.cc
+#include <iostream>
+inline double constant() { return 3.14159; }
+void print_pi() {
+  std::cout << constant() << std::endl;
+}
+
+// source2.cc
+#include <iostream>
+inline double constant() { return 2.71828; }
+void print_e() {
+  std::cout << constant() << std::endl;
+}
+
+// main.cc
+void print_e();
+void print_pi();
+
+int main() {
+  print_e();
+  print_pi();
+  return 0;
+}
+```
+
+4. 在C++中如果不同inline的定义不同，就会存在意想不到的问题，例如上述代码的链接顺序不同，会导致最终输出结果不同：
+
+```
+$ g++ source1.cc -c -O0
+$ g++ source2.cc -c -O0
+$ g++ main.cc -c -O0
+$
+$ g++ main.o source1.o source2.o -o main
+$ ./main
+3.14159
+3.14159
+$
+$ g++ main.o source2.o source1.o -o main
+$ ./main
+2.71828
+2.71828
+```
+5. 通过将inline函数声明为静态内联函数，将其符号类型改为local，并且为每一个#include的翻译单元创建一份代码副本，可以解决该问题
+```
+// static
+inline static double constant() { return 2.71828; }
+```
+
+6. 或者通过命名空间来创建多个弱符号，将弱符号冲突解决，实现保留所有定义的弱符号：
+
+```
+// named namespace
+namespace source1_private_ns {
+  inline double constant() { return 2.71828; }
+}
+
+// anonymous namespace
+namespace {
+  inline double constant() { return 2.71828; }
+}
+```
+
+
+
+参考[Dangers of linking inline functions](https://gudok.xyz/inline/?utm_source=chatgpt.com)
