@@ -173,7 +173,7 @@ int main() {
 参考[Replacing the Preprocessor in Modern C++](https://learnmoderncpp.com/2023/12/29/replacing-the-preprocessor-in-modern-c/)
 
 
-#### 4.1 补充细节
+### 补充细节
 
 1. __forceinline覆盖了收益成本分析，而直接内联（可能无法内联递归函数、虚函数、等等编译时期无法确定的函数）
 
