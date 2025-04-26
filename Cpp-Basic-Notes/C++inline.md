@@ -1,9 +1,7 @@
-# C++inline和宏展开的区别
+# C++inline
 
 [Reference1](https://stackoverflow.com/questions/1137575/inline-functions-vs-preprocessor-macros?utm_source=chatgpt.com)|
 [Reference2](https://en.cppreference.com/w/c/language/inline?utm_source=chatgpt.com)
-
-宏定义展开与inline函数有些类似，需要细致区分
 
 ## 1.inline的作用
 **提示**编译器内联展开函数，减少函数调用开销
@@ -145,9 +143,6 @@ int main() {
 ### 综上，内联函数展开的必要条件为**在编译时期确定具体的目标函数**
 
 
-
-
-
 ## 3.inline必定不展开的场景
 
 ### 3.1 禁用inline function expansion
@@ -161,6 +156,8 @@ int main() {
 ### 3.2 虚函数
 依赖动态绑定，运行时才确定调用目标，无法内联
 
+
+### 宏定义展开与inline函数有些类似，需要细致区分
 
 #### 相同点
 
