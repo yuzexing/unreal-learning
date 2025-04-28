@@ -86,7 +86,8 @@ static char a[12];
 
 堆栈都是进程中的概念，可执行程序中不包括这两个段。
 
-> 待补充 优先级一
+**栈**内存从高地址向低地址连续分配，在vs2022的debug模式下，每个变量之间存在安全守卫(cc..cc)，栈地址分配从小到大分配，更符合人类直觉，更容易调试。
+![alt text](image/image_stack.png)
 
 [Data segment wikipedia](https://en.wikipedia.org/wiki/Data_segment)
 
