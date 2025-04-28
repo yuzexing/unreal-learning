@@ -20,8 +20,9 @@ Tip：预处理指令不能是来自于**宏展开**例如：
 #define EMPTY #include <file.h> 
 EMPTY // not a include preprocessing directive
 ```
-> 原因：预处理器对**预处理指令**进行**单次扫描**，避免递归，减少复杂度，提高可维护性，
-> - tips预处理器虽然是会多次扫描代码，用于宏展开，但是并不会继续识别其中预处理指令。
+> 原因：减少复杂度，提高可维护性
+> - tips_1:预处理器虽然会在宏展开后的代码再次扫描并进行宏展开，但是并不会继续识别其中预处理指令。
+> - tips_2:预处理器在处理宏指令时，是遇到一条立刻处理一条，如果遇到宏展开，那么会对展开内容再次进行扫描，识别是否需要继续展开的定义（递归展开），但是会避免无线递归的情况（例如宏展开中包含自身）。
 > - 这里被宏递归展开绕晕了，等以后有了实践经验再理解（也就是为什么#include的文件可以继续识别其中的#include或者其他宏指令，但是宏展开#define中包含宏指令就不行）
 
 [Reference1](https://port70.net/~nsz/c/c11/n1570.html#6.10.3.4p3) | [Reference2](https://gcc.gnu.org/onlinedocs/cpp/The-preprocessing-language.html?utm_source=chatgpt.com)
@@ -109,6 +110,8 @@ struct Player {};
 > - 对于#include "file.h"，默认情况下，预处理器首先查询file.h所在目录，然后在查询系统目录。例如：main.cpp路径为"F:\Cpp_store\Project1\src\main.cpp"下，那么预处理器则先查询"F:\Cpp_store\Project1\src\"目录中是否包含"file.h"，如果没有查找到，则查找系统目录。
 > - 一般实践为：<>用于包含系统库，""用于包含用户定义的头文件。
 
+[Reference1](https://gcc.gnu.org/onlinedocs/cpp/Search-Path.html)|
+[Reference2](https://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename)
 
 #### GCC是什么？MSVS是什么？
 
