@@ -102,18 +102,63 @@ int main() {
 }
 ```
 
+### 嵌套命名空间
+嵌套命名空间比较好理解，子命名空间对于父命名空间具有非限定访问权限，而父命名空间对子命名空间不具备非限定访问权限（除非声明inline命名空间），例如：
+```
+namespace A {
+    void funcA1() {}
+    namespace B {
+        void funcB() {
+            funcA1(); // 子对父具有非限定访问权限
+        }
+    }
+    void funcA2() {
+        B::funcB(); // 父对子不具有非限定访问权限
+        funcB(); // identifier funcB is undefined
+    }
+}
+```
+### 内联命名空间（C++11）
+
+> 待补充 优先级二
+
+### 命名空间别名
+命名空间名称过长时可以使用别名，举例：
+```
+namespace a_very_long_namespace_name { class Foo {}; }
+namespace AVLNN = a_very_long_namespace_name;
+void Bar(AVLNN::Foo foo){ }
+```
+
+### 匿名命名空间
+可以创建显式命名空间，但不为其提供一个名称，匿名命名空间中的所有标识符，被规定为具有内部链接性。
+```
+namespace {
+    int a = 10;
+}
+
+```
+[Reference](https://timsong-cpp.github.io/cppwp/n4659/basic.link#4)
+
+
 ### 补充：
 ### 完全限定名称
+完全限定名称是指通过明确的方式调用/引用一个对象/方法/变量而不用考虑上下文。\
+C++中通过作用域解析操作符指定完全限定名称，例如：```A::B::c```
 
 [Reference1](https://stackoverflow.com/questions/56273345/what-is-a-fully-qualified-name)|
 [Reference2](https://en.wikipedia.org/wiki/Fully_qualified_name)|
 
-### 嵌套命名空间
 
+### 限定名称查询和非限定名称查询
 
-### 限定查询和非限定查询
+> 待补充 优先级五
+[Reference](https://en.cppreference.com/w/cpp/language/qualified_lookup)
 
-原理：查看符号表
+### 命名原理
+1. 限定名称查询
+2. 符号表名称修饰(Name Mangling)防止定义冲突
+
 
 ### 问题一：命名空间内的变量是局部变量还是全局变量？如果是局部变量那么作用域是什么呢？
 > 回答：全局变量。命名空间不改变变量的作用域，只是提供了作用域隔离的作用。
@@ -151,18 +196,16 @@ int main() {
 [source](https://learn.microsoft.com/en-us/cpp/cpp/namespaces-cpp?view=msvc-170)
 
 ### 什么情况可以用namespace
-1. 较小的作用域，例如if语句中大量使用了某个类
+1. 在较小的作用域中，例如if语句中，大量使用了某个命名空间中的成员
 
 
 ### 什么情况下不可以用namespace
-1. 使用了多个方法或者类会重复的公共库时
+1. 使用了多个标识符会重复的公共库时
 2. 头文件中
-
 
 
 ### 为什么最好不用namespace
 
-1.阅读性(看到代码就知道这个类来自于哪个库)
-2.对于
-2.代码bug调试
-3.举例
+1.降低阅读性(看到代码就知道这个标识符来自于外部或者当前文件中)
+2.例如在项目中使用了其他的非官方的STL库
+2.容易发生很难定位的隐性bug
