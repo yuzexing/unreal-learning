@@ -191,7 +191,7 @@ int main() {
 ```
 ### 问题三：命名空间的合并中，编译器是不知道其他翻译单元的内容，为什么能合并不同翻译单元中的同名命名空间的内容？
 > 来源
-```A namespace can be declared in multiple blocks in a single file, and in multiple files. The compiler joins the parts together during preprocessing and the resulting namespace contains all the members declared in all the parts. An example of this is the std namespace which is declared in each of the header files in the standard library```
+```A namespace can be declared in multiple blocks in a single file, and in multiple files. The compiler joins the parts together during preprocessing and the resulting namespace contains all the members declared in all the parts. An example of this is the std namespace which is declared in each of the header files in the standard library```\
 > 待补充 查看一下STL源码看看。。\
 [source](https://learn.microsoft.com/en-us/cpp/cpp/namespaces-cpp?view=msvc-170)
 
