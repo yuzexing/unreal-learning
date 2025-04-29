@@ -3,17 +3,20 @@
 #### 说明
 本节讨论的格式为ELF文件格式，主要是为了加深了解程序运行时的内存状态。
 
-#### 可重定位的目标文件包含以下内容：\
+#### 可重定位的目标文件包含以下内容：
 <picture>
   <img width=400 height=400 src="https://github.com/user-attachments/assets/fd2e0e26-ff90-48f4-aa1a-63bcfa49d2bf">
 </picture>
 
 
-#### 程序内存的经典布局：
+#### 程序虚拟内存的经典布局：
 
 <picture>
   <img width=400 height=400 src="https://github.com/user-attachments/assets/0d4d3542-c8e2-465f-8e6e-9c97498cf0c6">
 </picture>
+
+> 虚拟地址空间是操作系统为进程提供的一段虚拟地址的集合，虚拟地址的范围通常从一个较低的地址开始，增长到指令集允许的最大地址。
+
 
 [Reference1](https://refspecs.linuxbase.org/LSB_3.0.0/LSB-Embedded/LSB-Embedded/specialsections.html#:~:text=)
 |
