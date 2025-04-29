@@ -44,30 +44,48 @@ struct mystruct_A {
     char gap_1[3]; /* -"-: for alignment of the whole struct in an array */
 } x;
 ```
+3. 通过```#pragma pack(n)```指令调整结构体成员的对齐和填充方式，常用于节省空间
+
+[stack overflow](https://stackoverflow.com/questions/4306186/structure-padding-and-packing)
 
 
-### 问题一：为什么结构体的开始地址需要按照最大元素大小的整数倍进行分配？
+### 问题一：为什么结构体的最小对齐方式需要等于结构体内最大元素的对齐方式？
+便于结构体内最大元素的对齐
 
 ### 问题二：在编译阶段还没有分配运行时内存地址，那么编译器是如何控制内存对齐和内存对齐规则的呢？
 
-回答：在编译过程中，编译器通过在ELF header中记录P_align来表示每个段的内存对齐方式，首先将数据在段内进行对齐，后续的链接中的对齐按照P_align中说明的对齐方式进行对齐
+回答：简单的说：在编译和链接的过程中分别记录了每个段所要求的对齐方式和程序运行时要求的对齐方式。\
+具体的说：在编译过程中，编译器通过在ELF文件中的节头表(Section header Table)中记录每个段的sh_addralign，来表示每个段的内存对齐方式。在连接过程中，读取每个节投的对齐需求，生成程序头中的p_align，来表示该程序的内存对齐方式。在程序装载时，按照p_algin加载到对应的内存地址。
 
-[stackoverflow](https://stackoverflow.com/questions/63391927/what-is-p-align-in-elf-header)
+[stackoverflow](https://stackoverflow.com/questions/63391927/what-is-p-align-in-elf-header)|
+[docs oracle](https://docs.oracle.com/cd/E19683-01/816-7777/6mdorm6jj)
+
 
 
 ### 问题三：内存对齐是对齐虚拟内存还是物理内存？
 
-> 虚拟内存对齐后，物理内存的对齐由操作系统完成。
+> 虚拟内存
 
 ### 问题四：栈和堆的对齐方式是什么样的？
 
-> 
+> 栈规定4字节对齐，SP指针低位默认为00，不显示
+> 待补充，优先级五
 
 
-### 对齐规则：
-1. 函数必须对齐到最小32位的边界
-2. 数据元素的最小对齐方式是其本身大小
-3. 大于32位的数据只需要与32位对齐
+### 问题五：内存对齐时，编译器为什么也要在结构体末尾padding？
+
+> 便于结构体后的未知元素进行对齐，例如结构体数组等，举例在32位存储字长的计算机中：
+```
+struct A {
+    short a;
+    int b;
+    char c;
+}
+// sizeof(A) == 12
+
+A a[2];
+```
+> 当A结构体末尾插入padding时，则数组a中其下一个结构体a[1]自动内存对齐
 
 
 #### 概念补充：
