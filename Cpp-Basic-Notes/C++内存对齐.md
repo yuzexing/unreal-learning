@@ -8,7 +8,7 @@
 
 [wikipedia](https://en.wikipedia.org/wiki/Data_structure_alignment)
 
-![alt text](image/image_data_align.png)
+![alt text](https://github.com/user-attachments/assets/2ac49746-705f-47db-a4ff-d0d84d6ea13c)
 
 
 ### 为什么要内存对齐
