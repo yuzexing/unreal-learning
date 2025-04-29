@@ -90,7 +90,8 @@ static char a[12];
 堆栈都是进程中的概念，可执行程序中不包括这两个段。
 
 **栈**内存从高地址向低地址连续分配，在vs2022的debug模式下，每个变量之间存在安全守卫(cc..cc)，栈地址分配从小到大分配，更符合人类直觉，更容易调试。在栈内存回收时，将栈顶指针移回进栈时的位置即可完成整块栈内存的回收。\
-![alt text](https://github.com/user-attachments/assets/53be32a9-2339-4650-ab23-9c864bf88e9c)\
+
+<img src="https://github.com/user-attachments/assets/53be32a9-2339-4650-ab23-9c864bf88e9c" width="300" height="200" />
 
 **堆**内存是的分配在C++中是通过new关键字(new->malloc->查询内存分配表、空闲表等一系列内存分配操作)向操作系统进行动态分配，再通过delete关键字归还内存块。\
 
