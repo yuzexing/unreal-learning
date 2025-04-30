@@ -2,9 +2,9 @@
 
 
 ### 什么是内存对齐
-内存对齐是在计算机内存中排列和访问数据的方式。它由三个独立但相关的问题组成：数据对齐、数据结构填充和打包。\
+内存对齐是在计算机内存中排列和访问数据的方式。它由三个独立但相关的问题组成：数据对齐、数据结构填充和打包。
 
-只要存储字长大于等于计算机所支持的最大的原始数据类型，那么对齐的访问始终访问单个内存字 \
+只要存储字长大于等于计算机所支持的最大的原始数据类型，那么对齐的访问始终访问单个内存字
 
 [wikipedia](https://en.wikipedia.org/wiki/Data_structure_alignment)
 
@@ -45,6 +45,7 @@ struct mystruct_A {
 } x;
 ```
 3. 通过```#pragma pack(n)```指令调整结构体成员的对齐和填充方式，常用于节省空间
+4. 通过```alignas()```更改对齐方式
 
 [stack overflow](https://stackoverflow.com/questions/4306186/structure-padding-and-packing)
 
@@ -86,6 +87,25 @@ struct A {
 A a[2];
 ```
 > 当A结构体末尾插入padding时，数组a中下一个结构体```a[1]```自动内存对齐
+
+### 问题六：alignas和编译器扩展指令#pragma pack的区别是什么？
+
+| 特性  | alignas | #pragma pack |
+| ------------- | ------------- | ------------- |
+| 作用  | 过度对齐  | 减少对齐  |
+| 作用对象  | 变量、类型别名、类/结构/联合、枚举  | 结构体/联合体/类的成员  |
+| 场景  | 缓存行对齐  | 网络包  |
+
+1. alignas不会减少默认对齐，不可以用于去除结构体内部的padding
+2. #pragma pack不能增加对齐
+
+
+#### 个人理解
+> alignas对结构体使用时，是在内部增加padding，会影响结构体大小；而对于基本类型变量使用时，不会更改变量实际大小(sizeof)，是通过增加前面的padding来实现对齐的。
+
+> alignas的常见应用场景：缓存行对齐，待补充 优先级五
+[Reference](https://stackoverflow.com/questions/62489128/practical-use-cases-for-alignof-and-alignas-c-keywords)
+
 
 
 ### 概念补充：
