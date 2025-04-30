@@ -3,6 +3,9 @@
 
 ### Vector
 
+构造函数
+使用 vector<int> v(i, j); // 初始化 i个 元素为j的vector
+
 常用api
 front(); // 返回容器第一个元素的引用
 back(); // 返回容器最后一个元素的引用
