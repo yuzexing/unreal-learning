@@ -3,9 +3,27 @@
 
 ### Vector
 
+常用api
+front(); // 返回容器第一个元素的引用
+back(); // 返回容器最后一个元素的引用
+
+begin()
+end()
+rbegin()
+rend()
+
 ### Set
 
 ### unordered_Set
+
+常用api
+
+insert
+find
+count
+contains C++20
+
+与set的区别
 
 ### Map
 
