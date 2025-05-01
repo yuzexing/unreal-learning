@@ -2,8 +2,7 @@
 
 在C++中一般通过new关键字进行内存的动态分配，通过delete关键字进行内存的回收。也可以通过malloc函数和free函数分配和回收堆内存。
 
-![image](https://github.com/user-attachments/assets/f09b2e08-b945-4421-85e7-9fd6f4c13b2e)
-
+<image src="https://github.com/user-attachments/assets/f09b2e08-b945-4421-85e7-9fd6f4c13b2e" width=200 height=300>
 
 ### 动态内存分配(new malloc)
 动态内存分配器维护一个进程的虚拟内存区间，一般是堆或者自由存储区(以下统一称为堆)。堆从.bss区域开始向上生长(向高地址)，内核中维护的brk指向堆顶。
