@@ -18,10 +18,10 @@
 3. 最坏适应算法
 
 #### 隐式空闲链表项
-![image](https://github.com/user-attachments/assets/275884f1-73f3-4e40-a05c-e36d17e8fd3e)
+<image src="https://github.com/user-attachments/assets/275884f1-73f3-4e40-a05c-e36d17e8fd3e" width=300 height=300>
 
 #### 显示空闲链表项
-![image](https://github.com/user-attachments/assets/ac56c602-3d7b-48f6-915a-209ad06cac83)
+<image src="https://github.com/user-attachments/assets/ac56c602-3d7b-48f6-915a-209ad06cac83" width=300 height=300>
 
 
 ### C++堆内存分配过程
