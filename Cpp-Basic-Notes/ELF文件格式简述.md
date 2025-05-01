@@ -10,8 +10,10 @@
 
 > 对于链接器来说，可重定位目标文件是字节块的集合。这些块中，有些包含程序代码，有些包含程序数据，而其他的则包含引导链接器和加载器的数据结构。链接器将这些块连接起来，确定被连接块的运行时位置，并且修改代码和数据块中的各种位置。
 
+> 可执行目标文件与此格式类似，但是多了一些例如程序入口点的信息在ELF头表中。
 
-#### 程序虚拟内存的经典布局：
+
+#### 程序在虚拟内存中的经典布局：
 
 <picture>
   <img width=400 height=400 src="https://github.com/user-attachments/assets/0d4d3542-c8e2-465f-8e6e-9c97498cf0c6">
@@ -51,7 +53,7 @@ ELF头以一个16字节的序列开始，这个序列描述了该文件的字的
 ##### 补充：
 > 静态变量包括：静态局部变量和静态全局变量；只要是已初始化的静态变量都会存储在.data段。
 
-> 局部变量被保存在运行时被保存在栈中，既不出现在.data节中，也不出现在.bss节中。
+> 局部变量在运行时被保存在栈中，既不出现在.data节中，也不出现在.bss节中。
 ```
 int i = 3;
 char a[] = "Hello World";
@@ -61,7 +63,7 @@ void foo (void) {
 }
 ```
 
-**.bss段**存储未显示初始化的静态数据，包括变量和常量，不论是全局变量还是局部变量。例如：
+**.bss段**存储未显示初始化的**静态数据**，包括变量和常量，不论是全局变量还是局部变量。例如：
 ```
 static int i;
 static char a[12];
@@ -77,6 +79,8 @@ static char a[12];
 1. 常数折叠或者直接作为立即数写入指令中，所以不存在常量区
 2. 字符串通常在常量区共享一份数据
 3. 在某些系统中可能存在.rodata段被多个进程共享的情况（真的吗）
+
+> 目前的理解：代码中的初始化常量，大部分都来自于.rodata区
 
 ### 3.rel.text段、rel.data段
 
@@ -94,6 +98,33 @@ static char a[12];
 ### 5. Section Header Table
 
 **节部头表(Section Header Table)**是描述ELF文件中各个节的数据结构。节头表通过ELF头的字段指示出其在文件中的偏移和大小，通过节头表可以定位所有节在文件中的位置、**对齐方式**以及类型等信息。
+
+
+#### section header table的例子
+```
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .note.gnu.build-i NOTE            080480b4 0000b4 000024 00   A  0   0  4
+  [ 2] .gnu.hash         GNU_HASH        080480d8 0000d8 000018 04   A  3   0  4
+  [ 3] .dynsym           DYNSYM          080480f0 0000f0 000010 10   A  4   1  4
+  [ 4] .dynstr           STRTAB          08048100 000100 000001 00   A  0   0  1
+  [ 5] .rel.text         REL             08048104 000104 000020 08  AI  3   6  4
+  [ 6] .text             PROGBITS        08048124 000124 00002d 00 WAX  0   0  1
+  [ 7] .eh_frame         PROGBITS        08048154 000154 000000 00   A  0   0  4
+  [ 8] .dynamic          DYNAMIC         08048154 000154 000080 08  WA  4   0  4
+  [ 9] .data             PROGBITS        080481d4 0001d4 000008 00  WA  0   0  4
+  [10] .bss              NOBITS          080481dc 0001dc 000004 00  WA  0   0  4
+  [11] .comment          PROGBITS        00000000 0001dc 00002d 01  MS  0   0  1
+  [12] .symtab           SYMTAB          00000000 00020c 000180 10     13  16  4
+  [13] .strtab           STRTAB          00000000 00038c 000050 00      0   0  1
+  [14] .shstrtab         STRTAB          00000000 0003dc 000079 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  p (processor specific)
+```
 
 
 
