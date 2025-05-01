@@ -2,6 +2,9 @@
 
 在C++中一般通过new关键字进行内存的动态分配，通过delete关键字进行内存的回收。也可以通过malloc函数和free函数分配和回收堆内存。
 
+![image](https://github.com/user-attachments/assets/f09b2e08-b945-4421-85e7-9fd6f4c13b2e)
+
+
 ### 动态内存分配(new malloc)
 动态内存分配器维护一个进程的虚拟内存区间，一般是堆或者自由存储区(以下统一称为堆)。堆从.bss区域开始向上生长(向高地址)，内核中维护的brk指向堆顶。
 
@@ -14,6 +17,13 @@
 1. 最佳适应算法
 2. 首次适应算法
 3. 最坏适应算法
+
+#### 隐式空闲链表项
+![image](https://github.com/user-attachments/assets/275884f1-73f3-4e40-a05c-e36d17e8fd3e)
+
+#### 显示空闲链表项
+![image](https://github.com/user-attachments/assets/ac56c602-3d7b-48f6-915a-209ad06cac83)
+
 
 ### C++堆内存分配过程
 
@@ -32,9 +42,6 @@
 
 > 1. 需要较大的空间
 > 2. 需要变量具有较长的生命周期
-
-[]图
-
 
 ### new/delete和malloc/free的区别
 
