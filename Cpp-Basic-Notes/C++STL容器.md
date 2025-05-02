@@ -46,6 +46,7 @@ pop_front
 pop_back
 fornt()
 back()
+empty()
 
 ### string
 
