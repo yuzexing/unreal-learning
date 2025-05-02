@@ -36,6 +36,18 @@ contains C++20
 
 ### unordered_Map
 
+### deque
+双端存储的数据结构，通常是栈/队列中封装的容器
+
+常用方法：
+push_back
+push_front
+pop_front
+pop_back
+fornt()
+back()
+
+### string
 
 ### 注意事项
 
