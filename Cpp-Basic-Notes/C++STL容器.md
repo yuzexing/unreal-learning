@@ -5,8 +5,9 @@
 
 构造函数
 使用 vector<int> v(i, j); // 初始化 i个 元素为j的vector
-
+使用 vector<int> v = { i, i, i }; // 手动指定某个元素以及数量作为初始化
 常用api
+push_back();
 front(); // 返回容器第一个元素的引用
 back(); // 返回容器最后一个元素的引用
 
@@ -14,6 +15,9 @@ begin()
 end()
 rbegin()
 rend()
+
+细节：其中begin()获取的迭代器不能和rbegin()/rend()迭代器进行比较
+
 
 ### Set
 
