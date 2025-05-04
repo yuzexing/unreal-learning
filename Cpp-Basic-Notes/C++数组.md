@@ -18,7 +18,7 @@ main() {
 > C++标准要求栈中分配的数组大小，需要在编译期就能计算出其大小。
 > 简单的来说，是为了：
 > - 性能
-> - 方便
+> - 方便 \
 > 性能方面具体来说(MIPS下)：这么做是因为过程调用栈分配时通常通过帧指针+变量大小作为偏移量来访问栈帧中的变量，当编译时期变量大小已知时，通过一条指令即可访问到指定的栈帧中的变量。例如代码块中：
 ```
 void foo(void)
@@ -28,8 +28,8 @@ void foo(void)
     int c;
 ```
 > 可以通过``FRAME_POINTER + 0``访问a，通过``FRAME_POINTER + 4``来访问b。
-> 当变量大小未知时，通常在编译时期无法计算出大小。这对于编译器的开发者来说会更加复杂，因为必须编写出访问``FRAME_POINTER + N``的代码；同时``N``本身也需要存储在某个地方，所以至少需要一次额外的访存来实现这个``FRAME_POINTER + N``的代码。
-[stackoverflow](https://stackoverflow.com/questions/4341570/why-does-a-c-c-compiler-need-know-the-size-of-an-array-at-compile-time)\
+> 当变量大小未知时，通常在编译时期无法计算出大小。这对于编译器的开发者来说会更加复杂，因为必须编写出访问``FRAME_POINTER + N``的代码；同时``N``本身也需要存储在某个地方，所以至少需要一次额外的访存来实现这个``FRAME_POINTER + N``的代码。\
+[stackoverflow](https://stackoverflow.com/questions/4341570/why-does-a-c-c-compiler-need-know-the-size-of-an-array-at-compile-time)
 
 细节：
 - sp是栈顶指针。
