@@ -37,6 +37,7 @@ void foo(void)
 细节：
 - sp是栈顶指针
 - fp是帧指针
+- 函数参数通过一定数量的寄存器传递，超过一定数量压入栈中
 
 > 待补充，为什么C语言支持VLA（variable-length array），优先级五
 
@@ -44,6 +45,8 @@ void foo(void)
 
 > 待补充
 > 分为静态初始化和动态初始化。优先级二
+
+(Reference)[https://pabloariasal.github.io/2020/01/02/static-variable-initialization]
 
 ### 问题三：如何在栈上实现动态数组？
 
