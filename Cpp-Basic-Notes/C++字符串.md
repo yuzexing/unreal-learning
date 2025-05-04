@@ -31,6 +31,7 @@ C++11和C++20引入的用于区分不同编码的新数据类型
 
 #### wchar_t (C++11)
 表示宽字符
+> 补充
 
 #### char8_t、char16_t和char32_t 
 char8_t、char16_t和char32_t 分别表示8位、16位和32位宽字符。分别用于存储UTF-8、UTF-16和UTF-32的Unicode。
