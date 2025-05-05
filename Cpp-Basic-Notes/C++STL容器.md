@@ -6,18 +6,24 @@
 构造函数
 使用 vector<int> v(i, j); // 初始化 i个 元素为j的vector
 使用 vector<int> v = { i, i, i }; // 手动指定某个元素以及数量作为初始化
+
+拷贝构造函数
+vector<int> v1
+vector<int> v2(v1.begin(), v1.end()); // 左闭右开，v1.end指向容器最后一位的后一位
+
 常用api
 push_back();
 front(); // 返回容器第一个元素的引用
 back(); // 返回容器最后一个元素的引用
 
-begin()
-end()
+begin() // 该迭代器指向向量第一个元素
+end()  //该迭代器指向向量最后一个元素之后的元素
 rbegin()
 rend()
 
 细节：其中begin()获取的迭代器不能和rbegin()/rend()迭代器进行比较
 
+[参考api](https://learn.microsoft.com/zh-cn/cpp/standard-library/vector-class?view=msvc-170)
 
 ### Set
 

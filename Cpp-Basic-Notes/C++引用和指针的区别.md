@@ -25,7 +25,7 @@ int main() {
 }
 // error C2102: '&' requires l-value
 ```
-但是引用可以做到：
+但是引用可以做到，(条件是增加const，因为对外部临时变量的修改是没有意义的，同时扩展临时变量的生命周期以匹配引用)：
 ```
 #include <iostream>
 struct Temp {
@@ -56,6 +56,9 @@ const int& c = 6;
 
 ### 左值 右值 左值引用 右值引用
 
+> 补充临时变量生命周期，为什么会被const 引用扩展？
+
 > 待补充
 [move](https://en.cppreference.com/w/cpp/utility/move)|
-[zhihu](https://zhuanlan.zhihu.com/p/335994370)
+[zhihu](https://zhuanlan.zhihu.com/p/335994370)|
+[wiki](https://en.wikipedia.org/wiki/Reference_%28C%2B%2B%29?)
