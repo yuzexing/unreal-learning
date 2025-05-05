@@ -6,6 +6,7 @@
 
 #### 问题一：UVs的作用
 
+> 待补充 材质基础
 
 #### 问题二：过程中遇到Axis and action mappings are now deprecated, please use Enhanced input Actions and input Mapping Context instead。
 
