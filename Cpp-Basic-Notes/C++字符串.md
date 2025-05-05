@@ -31,7 +31,7 @@ C++11和C++20引入的用于区分不同编码的新数据类型
 
 #### wchar_t (C++11)
 表示宽字符
-> 补充
+``wchar_t``类型是实现定义的宽字符类型。 在 Microsoft 编译器中，它表示一个 16 位宽字符，用于存储编码为 UTF-16LE 的 Unicode。
 
 #### char8_t、char16_t和char32_t 
 char8_t、char16_t和char32_t 分别表示8位、16位和32位宽字符。分别用于存储UTF-8、UTF-16和UTF-32的Unicode。
@@ -46,6 +46,8 @@ char8_t是C++20引入的，char16_t和char32_t是C++11引入的。
 
 **弊端**：一些三方库甚至标准库不支持宽字符的操作，可以尝试对其进行转化
 
+**变体** LE、BE表示小段存储，BE表示大端存储，例如UTF-16BE，UTF-32LE
+
 > 补充转化参考代码
 
 [参考](https://learn.microsoft.com/zh-cn/cpp/cpp/char-wchar-t-char16-t-char32-t)
@@ -54,10 +56,11 @@ char8_t是C++20引入的，char16_t和char32_t是C++11引入的。
 
 C++14提供的对字面量的操作库，作用：
 1. R"test_str" 忽略其中转义字符
-2. L"test_str" 表示将字符串转为wstring（）
+2. L"test_str" 表示将其中``char``转为``wchar_t``
 3. 补充    using namespace std::string_literals;
 
 
 > 待补充 无优先级，需要时再看
 
-(参考)[https://en.cppreference.com/w/cpp/language/string_literal]
+(参考)[https://en.cppreference.com/w/cpp/language/string_literal]|
+(知乎)[https://zhuanlan.zhihu.com/p/17874484194]
