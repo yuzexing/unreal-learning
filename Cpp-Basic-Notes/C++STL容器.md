@@ -27,6 +27,9 @@ rend()
 
 ### Set
 
+常用api
+erase：删除元素
+
 ### unordered_Set
 
 常用api
