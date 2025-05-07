@@ -40,6 +40,27 @@ contains C++20
 
 ### Map
 
+特性：
+1. 大小可变的关联容器
+2. 可逆（双向迭代器）
+3. 有序
+4. 唯一
+
+常见API:
+
+1. insert
+2. begin
+3. end
+4. clear
+5. contains(C++20)
+6. erase
+7. find
+8. empty
+9. size
+10. count
+11. value_type 允许在map中存储的元素的对象类型
+
+
 ### unordered_Map
 
 ### deque

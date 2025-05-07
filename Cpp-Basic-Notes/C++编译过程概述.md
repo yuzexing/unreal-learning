@@ -107,6 +107,16 @@ foreach section s {              //iterate over each section
 
 > 回答：便于读者理解，其实还是遍历重定位表项
 
+#### typedef关键字的作用
+
+> 为现有数据类型创建新的名称，等价于别名，例如:
+```
+typedef class {} c;
+typedef int i;
+对于std::map中的value_type来自于：
+typedef pair<const key, Type> value_type;
+std::map<const Key, Type>::value_type 访问定义的存储对象的类型。
+```
 
 
 
