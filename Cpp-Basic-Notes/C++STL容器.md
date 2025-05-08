@@ -37,7 +37,7 @@ erase：删除元素
 
 insert
 find
-count
+count() // 只有0或1
 contains C++20
 
 与set的区别
@@ -61,11 +61,13 @@ contains C++20
 7. find
 8. empty
 9. size
-10. count
+10. count // 0/1
 11. value_type 允许在map中存储的元素的对象类型
 
 
 ### unordered_Map
+
+count() // 只有0或1
 
 ### deque
 双端存储的数据结构，通常是栈/队列中封装的容器
