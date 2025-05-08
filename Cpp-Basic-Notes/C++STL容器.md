@@ -56,7 +56,7 @@ contains C++20
 3. end
 4. clear
 5. contains(C++20)
-6. erase
+6. erase // 可传入迭代器 或者迭代器的起点和终点，或者传入key
 7. find
 8. empty
 9. size
