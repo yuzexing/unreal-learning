@@ -64,3 +64,53 @@ C++14提供的对字面量的操作库，作用：
 
 (参考)[https://en.cppreference.com/w/cpp/language/string_literal]|
 (知乎)[https://zhuanlan.zhihu.com/p/17874484194]
+
+
+### 自己实现的String类
+```
+class String {
+private:
+    char* m_buffer;
+    size_t m_size;
+public:
+    String(const char* c) {
+        m_size = strlen(c); // strlen不包含结束符
+        m_buffer = new char[m_size + 1];
+        /*for (int i = 0; i < m_size + 1; i ++) {
+            m_buffer[i] = c[i];
+        }*/
+        // 或者
+        memcpy(m_buffer, c, m_size + 1);
+    }
+    friend std::ostream& operator << (std::ostream&, const String&);
+    String(const String& str) {
+        this->m_size = str.m_size;
+        m_buffer = new char[m_size + 1];
+        memcpy(this->m_buffer, str.m_buffer, str.m_size + 1);
+    }
+
+    char& operator[](const size_t index) const {
+        return this->m_buffer[index];
+    }
+
+    ~String() {
+        delete[] m_buffer;
+    }
+};
+
+std::ostream& operator<<(std::ostream& stream, const String& s) {
+    stream << s.m_buffer;
+    return stream;
+}
+
+int main() {
+    String str("yuzexing");
+    String str2 = str; // 深拷贝
+    str2[1] = '1';
+    str[4] = 'z';
+    std::cout << str << std::endl;
+    std::cout << str2 << std::endl;
+}
+```
+
+> 对于``std::string``，总是使用 const引用传递(待补充原因)
