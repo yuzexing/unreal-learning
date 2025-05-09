@@ -108,7 +108,8 @@ struct Player {};
 > 回答：最大区别在于预处理器的搜索路径：
 > - 对于#include <file.h>，预处理器的默认行为是搜索系统路径，而具体的搜索路径取决于目标系统、编译器的配置以及安装位置。可以通过指令修改搜索的系统路径。
 > - 对于#include "file.h"，默认情况下，预处理器首先查询file.h所在目录，然后在查询系统目录。例如：main.cpp路径为"F:\Cpp_store\Project1\src\main.cpp"下，那么预处理器则先查询"F:\Cpp_store\Project1\src\"目录中是否包含"file.h"，如果没有查找到，则查找系统目录。
-> - 一般实践为：<>用于包含系统库，""用于包含用户定义的头文件。
+> - 一般实践为：<>用于包含系统库，""用于包含用户定义的头文件，当静态库在Solution下时，常使用""引入。
+> - 
 
 [Reference1](https://gcc.gnu.org/onlinedocs/cpp/Search-Path.html)|
 [Reference2](https://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename)
