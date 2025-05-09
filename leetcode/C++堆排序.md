@@ -33,6 +33,7 @@ n >> 1：求父节点下标
 
 ### 代码实现
 
+数组下标从0开始
 ```
 #include <iostream>
 #include <algorithm>
