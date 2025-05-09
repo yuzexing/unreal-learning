@@ -21,6 +21,8 @@ end()  //该迭代器指向向量最后一个元素之后的元素
 rbegin()
 rend()
 resize(); // 重新分配内存大小
+emplace_back(); // 就地构造插入数组尾部
+emplace(); // position , args
 
 细节：其中begin()获取的迭代器不能和rbegin()/rend()迭代器进行比较
 
