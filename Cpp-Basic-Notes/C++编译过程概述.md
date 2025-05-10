@@ -111,13 +111,37 @@ foreach section s {              //iterate over each section
 
 > 为现有数据类型创建新的名称，等价于别名，例如:
 ```
-typedef class {} c;
-typedef int i;
+typedef class {
+  int a = 1;
+} C; 
+
+C c;
+c.a;
+
+
+typedef int it;
+
+it a = 1;
+
+
 对于std::map中的value_type来自于：
 typedef pair<const key, Type> value_type;
 std::map<const Key, Type>::value_type 访问定义的存储对象的类型。
 ```
 
+> 类似的方法
+1. using
+```
+using C = class {
+public:
+    int a = 1;
+};
+C c; c.a;
+```
+2. #define 宏定义;
+
+using和typedef仅能用于类型别名，职责单一，且类型安全，有作用域限制
+#define 宏定义在预处理阶段全局有效，不受 C++ 作用域或命名空间限制，宏只做文本替换，缺乏类型安全和模板语义
 
 
 
