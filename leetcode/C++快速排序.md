@@ -26,3 +26,10 @@ void quickSelect(vector<int>& nums, int l, int r) {
     quickSelect(nums, j + 1, r);
 }
 ```
+
+### 优化
+1. 如果元素本身已经有序了，则可能退化到O(n²)，例如：元素原本降序，但是需要调整为升序，则时间复杂度O(n²).
+优化办法：随机化 pivot、三数取中
+
+2. 对重复率较高的
+三路划分
