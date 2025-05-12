@@ -4,6 +4,7 @@
 ### Vector
 
 构造函数
+使用 vector<int> v(i); // 初始化i个，元素值为0的vector
 使用 vector<int> v(i, j); // 初始化 i个 元素为j的vector
 使用 vector<int> v = { i, i, i }; // 手动指定某个元素以及数量作为初始化
 
@@ -90,6 +91,14 @@ pop_back
 fornt()
 back()
 empty()
+
+### queue
+
+front() // 返回队列第一个元素
+pop(); // 删除队列第一个元素
+push(); // 进队一个元素
+
+### stack
 
 ### string
 
