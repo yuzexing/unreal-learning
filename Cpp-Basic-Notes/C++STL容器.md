@@ -23,6 +23,14 @@ rend()
 resize(); // 重新分配内存大小
 emplace_back(); // 就地构造插入数组尾部
 emplace(); // position , args
+erase(); // iterator 或迭代器的起始位置。返回除了**删除元素后**，**未遍历的第一个元素的迭代器**
+```
+vector<int> v{1,2,3,4,5};
+for (auto it = v.begin(); it != v.end(); /*do not ++it*/) {
+    printf("%d\n", *it);
+    it = v.erase(it);
+}
+```
 
 细节：其中begin()获取的迭代器不能和rbegin()/rend()迭代器进行比较
 
