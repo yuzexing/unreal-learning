@@ -2,7 +2,7 @@
 
 PCH，precompiled header file
 
-用于处理固定的头文件，**加快编译速度**，例如标准模板库，WindowsAPi，C++库
+主要用于处理固定的头文件，**加快编译速度**，例如标准模板库，WindowsAPi，C++库
 
 也可以把自己的写的文件放进去，但是如果修改，则会重新编译所有的预编译头文件。
 
@@ -70,10 +70,12 @@ int main() {
 2. 打开编译时间显示
 
 未开启预编译头文件的首次编译时间：1.9s
+
 ![image](https://github.com/user-attachments/assets/0f3bdb39-e1d6-456e-ad28-fd86515d5f72)
 
-未启预编译头文件后修改main.cpp的编译时间：0.9s
-![image](https://github.com/user-attachments/assets/7bcc5aa4-e53c-4e7a-84eb-941dfccc5a9e)
+未启预编译头文件后修改main.cpp的编译时间：0.8s
+
+![image](https://github.com/user-attachments/assets/44707724-a041-44da-8cce-a774e0e3e06b)
 
 开启预编译头文件的首次编译时间：1.4s
 
@@ -82,6 +84,20 @@ int main() {
 开启预编译头文件后修改main.cpp的编译时间：0.3s
 
 ![image](https://github.com/user-attachments/assets/145c30c6-eb02-48fb-a2e0-6e879c1dc2b1)
+
+### 问题一：为什么开启预编译头文件和未开启预编译头文件的首次编译时间也会有差异？
+
+本质是缓存，空间换时间。对于配置了预编译的头文件，只需编译一次（一次预处理，词法分析，语法分析，语义分析）然后作为缓存，后续复用，以加快速度。
+
+当整个项目只有一处使用时，几乎不会减少编译时间，可能还会增加编译时间（预编译的头文件作为缓存的IO时间）
+
+
+### 问题二：预编译头文件为什么能提高编译速度？
+
+将头文件中的内容预处理+编译后作为二进制缓存，使得相同的预处理头文件不需要再次进行预处理+部分编译阶段。
+
+[wikipedia](https://en.wikipedia.org/wiki/Precompiled_header)|
+[stackoverflow](https://stackoverflow.com/questions/903228/why-use-precompiled-headers-c-c)
 
 
 
