@@ -24,7 +24,10 @@ rend()
 resize(); // 重新分配内存大小
 emplace_back(); // 就地构造插入数组尾部
 emplace(); // position , args
-erase(); // iterator 或迭代器的起始位置。返回除了**删除元素后**，**未遍历的第一个元素的迭代器**
+erase(); // iterator 或迭代器的起始位置。返回除了**删除元素后**，**未遍历的第一个元素的
+迭代器**
+insert() // 在指定的迭代器位置插入N个元素, it, N, val，当N=1时，可以省略
+
 ```
 vector<int> v{1,2,3,4,5};
 for (auto it = v.begin(); it != v.end(); /*do not ++it*/) {
@@ -99,6 +102,12 @@ pop(); // 删除队列第一个元素
 push(); // 进队一个元素
 
 ### stack
+
+push(); // 入栈
+pop(); // 出栈
+top(); // 返回栈顶的元素
+
+
 
 ### string
 

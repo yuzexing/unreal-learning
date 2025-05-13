@@ -72,6 +72,37 @@ int main() {
 }
 ```
 
+#### dynamic_cast使用场景
+
+1. 类型检查，判断一个基类类型的对象是否是派生类对象，例如：
+```
+class Entity {
+public:
+virtual void play(){} // 建立虚表避免dynamic_cast报错
+};
+class Player : Entity {
+};
+class Enemy : Entity {
+};
+int goHome(Entity* e) {
+    Player* p = dynamic_cast<Player*>(e);
+    if (p == nullptr) {
+        return 0;
+    }
+    return 1;
+}
+```
+
+#### dynamic_cast的原理和开销
+
+运行时有额外的判断，会有较小的性能损失。
+
+1. 空间上记录了Run-Time Type Information，RTTI
+2. 时间上需要判断转换类型是否合法，不合法则返回空指针
+3. 使用dynamic_cast需要打开RTTI，否则编译时会警告，运行时异常
+
+> 在多态中补充RTTI和虚表的关联
+
 ### static_cast
 
 无运行时检查，对应C风格的显示类型转换
