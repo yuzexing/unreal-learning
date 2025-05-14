@@ -90,51 +90,73 @@ count() // 只有0或1
 
 常用方法：
 push_back
+
 push_front
+
 pop_front
+
 pop_back
+
 fornt()
+
 back()
+
 empty()
 
 ### queue
 
 front() // 返回队列第一个元素
+
 pop(); // 删除队列第一个元素
+
 push(); // 进队一个元素
 
 ### stack
 
 push(); // 入栈
-pop(); // 出栈
-top(); // 返回栈顶的元素
 
+pop(); // 出栈
+
+top(); // 返回栈顶的元素
 
 
 ### string
 
 字符容器，拥有短字符串优化，超过一定长度会在堆内存中分配
 
-api:
 迭代器的常见api:
 begin
+
 cbegin
 
 end
+
 cend() // 常量迭代器
+
 rbegin
+
 rend() // 常量迭代器
 
 访问：
+
 at
+
 []操作符
+
 front()
+
 back()
+
 data() 返回指向第一个字符的指针
+
 push_back() 
+
 pop_back()
+
 replace()
+
 insert()
+
 append() // 将一段字符加入string
 
 
