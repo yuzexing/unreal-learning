@@ -27,6 +27,8 @@ emplace(); // position , args
 erase(); // iterator 或迭代器的起始位置。返回除了**删除元素后**，**未遍历的第一个元素的
 迭代器**
 insert() // 在指定的迭代器位置插入N个元素, it, N, val，当N=1时，可以省略
+pop_back() // 删除最后
+
 
 ```
 vector<int> v{1,2,3,4,5};
