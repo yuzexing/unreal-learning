@@ -195,7 +195,18 @@ public:
 ```
 
 > 回答：静态成员在类定义中只能作声明，而(不能定义)[https://en.cppreference.com/w/cpp/language/static]。
-> 但是为什么呢？(待补充)[https://stackoverflow.com/questions/45277976/why-can-static-member-function-definitions-not-have-the-keyword-static]
+> 但是为什么呢？[https://stackoverflow.com/questions/45277976/why-can-static-member-function-definitions-not-have-the-keyword-static]
+
+我的理解：
+1. 静态成员的初始化与类实例的初始化无关，所以不能在类定义中进行初始化(除非编译器做代码优化，替我们补全外部定义)
+2. 类中的非静态成员变量初始化是在类实例化的时候，而类静态成员存储在静态存储区，具有静态存储周期
+
+> 由const修饰的整型和枚举类型的静态成员，可以在类定义中初始化，也可以在类外初始化
+> C++17 声明inline的静态成员变量**只能**在类定义中定义。（为什么inline有这样的功能?待补充）
+> C++11的constexpr修饰的静态成员变量**只能**在类定义中定义，这种可能会作为编译时常量进行优化。
+
+
+[static](https://en.cppreference.com/w/cpp/language/static)
 
 ### 代码中的数据存在哪个区？
 
