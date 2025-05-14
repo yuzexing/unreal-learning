@@ -113,6 +113,33 @@ top(); // 返回栈顶的元素
 
 ### string
 
+字符容器，拥有短字符串优化，超过一定长度会在堆内存中分配
+
+api:
+迭代器的常见api:
+begin
+cbegin
+
+end
+cend() // 常量迭代器
+rbegin
+rend() // 常量迭代器
+
+访问：
+at
+[]操作符
+front()
+back()
+data() 返回指向第一个字符的指针
+push_back() 
+pop_back()
+replace()
+insert()
+append() // 将一段字符加入string
+
+
+[basic_string](https://en.cppreference.com/w/cpp/string/basic_string)
+
 ### 注意事项
 
 - 为什么在实例化模板类时，不指定模板参数类型编译器会报错？例如

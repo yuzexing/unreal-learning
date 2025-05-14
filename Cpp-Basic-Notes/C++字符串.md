@@ -66,7 +66,7 @@ C++14提供的对字面量的操作库，作用：
 (知乎)[https://zhuanlan.zhihu.com/p/17874484194]
 
 
-### 自己实现的String类
+### 自己实现的粗略的String类
 ```
 class String {
 private:
@@ -113,4 +113,33 @@ int main() {
 }
 ```
 
-> 对于``std::string``，总是使用 const引用传递(待补充原因)
+> 对于``std::string``，总是使用 const引用传递，避免拷贝
+
+
+### sizeof(std::string) == 32的原因
+
+因为字符串对短字符串进行了优化：SSO:small string optimization
+当字符串大小在16以内时，会使用栈缓冲区作为存储空间；当超过时，会进行堆内存的分配
+粗略的定义：
+```
+template <typename T>
+struct basic_string {
+    char* begin_;
+    size_t size_;
+    union {
+        size_t capacity_;
+        char sso_buffer[16];
+    };
+};
+```
+解读这里的union：
+1. 节省空间，当SSO触发时，采用sso_buffer存储字符串内容
+2. 当长度过长时，union存储长字符串的capacity
+3. size_ 始终存放有效字符数
+
+
+[参考](https://stackoverflow.com/questions/3770781/why-is-sizeofstring-32)
+
+
+
+
