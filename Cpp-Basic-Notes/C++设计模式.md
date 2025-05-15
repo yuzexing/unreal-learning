@@ -19,12 +19,12 @@ C++中的单例设计模式，只是一种组织全局变量和静态函数的�
 > 栈
 
 #### 问题二：函数中创建的局部静态变量又在哪里？
-> 在静态区，函数内的静态变量初始化只会**在第一次进入函数时初始化一次**，后续调用不会重新初始化，而是沿用上次的值
+> 在静态区，函数内的静态变量初始化只会**在第一次进入函数时初始化一次**，后续调用不会重新初始化，而是沿用上次的值(通过编译器实现)
 
 举例：
 ```
 void test() {
-	static int b = 1; // 初始化一次
+	static int b = 1; // 首次执行时初始化一次
 	b++;
 	cout << b << endl;
 }
@@ -38,7 +38,7 @@ int main() {
 [learncpp](https://www.learncpp.com/cpp-tutorial/static-local-variables)|
 [cppreference](https://en.cppreference.com/w/c/language/static_storage_duration)
 
-> 对于静态变量，有静态初始化和动态初始化两种初始化方式。
+> 对于全局和静态变量，有静态初始化和动态初始化两种初始化方式。
 > 1. 静态初始化：零初始化和常量初始化,常发生在编译时期
 > 2. 动态初始化：程序运行时期初始化一次。
 
@@ -58,7 +58,7 @@ void test() {
 	std::cout << z << std::endl;
 }
 
-static int a = dynamic_init(3); // 也是静态变量的动态初始化
+static int a = dynamic_init(3); // 也是全局变量的动态初始化
 
 int main() {
 	test(); // 7
@@ -66,7 +66,7 @@ int main() {
 }
 ```
 
-#### 全局静态变量的动态初始化的问题
+#### 全局变量的动态初始化的问题
 
 每个翻译单元内是按顺序初始化的，所以静态初始化是安全的。
 但是动态初始化，需要关注动态初始化的时机：

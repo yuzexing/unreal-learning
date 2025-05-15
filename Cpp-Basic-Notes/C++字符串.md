@@ -114,6 +114,7 @@ int main() {
 ```
 
 > 对于``std::string``，总是使用 const引用传递，避免拷贝
+> 兼容左值和右值
 
 
 ### sizeof(std::string) == 32的原因
