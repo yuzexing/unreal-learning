@@ -35,8 +35,100 @@ int main() {
 	test(); // 4
 }
 ```
-[learncpp](https://www.learncpp.com/cpp-tutorial/static-local-variables)
+[learncpp](https://www.learncpp.com/cpp-tutorial/static-local-variables)|
+[cppreference](https://en.cppreference.com/w/c/language/static_storage_duration)
 
+> 对于静态变量，有静态初始化和动态初始化两种初始化方式。
+> 1. 静态初始化：零初始化和常量初始化,常发生在编译时期
+> 2. 动态初始化：程序运行时期初始化一次。
+
+
+> 静态存储周期的对象初始值只在程序运行前初始化一次(零初始化和常量初始化)。
+> 静态变量的**动态初始化**，发生在首次执行声明时。
+
+```
+// debug 模式下的粗糙动态初始化，Release模式下可能会被编译器内联然后被静态初始化
+int dynamic_init(int x) {
+	return x * 2;
+}
+
+void test() {
+	static int z = dynamic_init(3); // 首次执行时动态初始化
+	z++;
+	std::cout << z << std::endl;
+}
+
+static int a = dynamic_init(3); // 也是静态变量的动态初始化
+
+int main() {
+	test(); // 7
+	test(); // 8
+}
+```
+
+#### 全局静态变量的动态初始化的问题
+
+每个翻译单元内是按顺序初始化的，所以静态初始化是安全的。
+但是动态初始化，需要关注动态初始化的时机：
+1. main函数执行之前
+2. 程序运行中
+
+由于不同翻译单元之间的动态初始化顺序是不确定的，就会导致动态初始化顺序混乱的问题：
+```
+// a.cpp
+int duplicate(int n)
+{
+    return n * 2;
+}
+auto A = duplicate(7); // A is dynamic-initialized
+```
+```
+// b.cpp
+#include <iostream>
+
+extern int A;
+auto B = A; // dynamic initialized
+
+int main()
+{
+  std::cout << B << std::endl;  // 14 or 0
+  return EXIT_SUCCESS;
+}
+```
+
+解决方法：
+1. 重构代码，避免翻译单元之间的初始化依赖
+2. 采用类似单例设计模式的方法，使用时初始化
+
+```
+// a.cpp
+int duplicate(int n)
+{
+    return n * 2;
+}
+
+auto& A()
+{
+  static auto a = duplicate(7); // Initiliazed first time A() is called
+  return a;
+}
+
+```
+```
+// b.cpp
+#include <iostream>
+#include "a.h"
+
+auto B = A();
+
+int main()
+{
+  std::cout << B << std::endl; // always 14
+  return EXIT_SUCCESS;
+}
+
+```
+[static-variable-initialization](https://pabloariasal.github.io/2020/01/02/static-variable-initialization)
 
 #### 单例设计的使用场景
 
