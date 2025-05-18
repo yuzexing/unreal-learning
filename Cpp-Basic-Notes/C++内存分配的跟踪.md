@@ -2,11 +2,24 @@
 
 
 ### 重载new操作符
-> 待补充 优先级五
+
+```
+void* operator new(size_t size) {
+	std::cout << "new:" << size << std::endl;
+	return malloc(size);
+}
+```
 
 
 ### 重载delete操作符
-> 待补充 优先级五
+
+```
+void operator delete(void* ptr, size_t size) {
+	std::cout << "delete:" << size << std::endl;
+	free(ptr);
+}
+// delete还可以重载其他参数，补充原因
+```
 
 
 ### 为什么可以重载多个参数的？
