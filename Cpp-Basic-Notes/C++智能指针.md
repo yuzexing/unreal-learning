@@ -54,8 +54,64 @@ shared_ptr的开销：额外的内存块进行引用计数
 
 ### weak_ptr
 
-弱引用指针，用来解决shared_ptr的循环引用问题？
+弱引用指针，用来解决shared_ptr的循环引用问题：
+```
+struct Node {
+  std::shared_ptr<Node> next;
+  std::shared_ptr<Node> prev;
+};
+int main() {
+	{
+		std::shared_ptr<Node> s_ptr = std::make_unique<Node>();
 
+		s_ptr->next = std::make_shared<Node>();
+
+		s_ptr->next->prev = s_ptr;
+	}
+	return 0;
+}
+```
+执行结果
+```
+construct
+construct
+```
+
+解决代码：
+```
+
+struct Node {
+	std::shared_ptr<Node> next;
+	std::weak_ptr<Node> prev;
+
+	Node() {
+		std::cout << "construct" << std::endl;
+	}
+	~Node() {
+		std::cout << "destruct" << std::endl;
+	}
+};
+
+
+int main() {
+	{
+		std::shared_ptr<Node> s_ptr = std::make_unique<Node>();
+
+		s_ptr->next = std::make_shared<Node>();
+
+		s_ptr->next->prev = s_ptr;
+	}
+	return 0;
+}
+```
+执行结果
+```
+construct
+construct
+destruct
+destruct
+```
+正确的析构了
 
 #### 用法：
 ```

@@ -86,3 +86,10 @@ int main() {
 }
 ```
 
+### 二维动态数组的初始化方式
+
+```
+vector<vector<int>> test(size1, vector<int>(size2, defaultValue));
+```
+
+
