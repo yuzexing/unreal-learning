@@ -35,6 +35,23 @@ const int& a = temp;
 
 右值引用，本身是一个左值
 
+### 引用折叠
+
+又称万能引用，规则如下：
+1. && && 等于 &&；如T&& && -> T&&
+2. 只要包含&，则是左值；例如T&& & –> T&
+
+```
+&  &  -> &
+&  && -> &
+&& &  -> &
+&& && -> &&
+```
+
+从理解的角度出发：左值引用会传播
+
+[zhihu](https://zhuanlan.zhihu.com/p/645328162)
+
 ### 移动赋值和赋值操作符的区别
 - 移动赋值是在已有实例的基础上进行移动操作
 - 赋值操作符可能会触发移动构造，创造新一个新的实例
@@ -141,3 +158,30 @@ int main() {
 ### C++五法则
 
 在三法则的基础上，加上移动构造函数和移动赋值运算符的实现
+
+### 移动语义和完美转发的对比
+
+移动语义
+1. 本质是强制类型转换，即``static_cast<T&&>(x)``
+2. 只能转换为右值
+
+完美转发：
+1. 编译时期的模板技术，依赖于类型推导
+2. 保持左值于右值的属性不变，常配合万能引用使用
+3. 在右值引用转发时，与移动语义操作相同：``static_cast<T&&>(x)``
+
+
+源码分析：
+```
+template <class _Ty>
+constexpr remove_reference_t<_Ty>&& move(_Ty&& _Arg) noexcept {
+    return static_cast<remove_reference_t<_Ty>&&>(_Arg);
+}
+```
+其中：remove_reference_t是将T的引用剥离，只保留类型
+
+```
+template< class T >
+using remove_reference_t = typename remove_reference<T>::type;
+```
+对于为什么要添加``typename``，是为了告诉编译器``remove_reference<T>::type``是一个类型，而不是成员变量

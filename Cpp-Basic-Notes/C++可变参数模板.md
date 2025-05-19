@@ -67,8 +67,22 @@ int main() {
 }
 ```
 
-2. 
+2. 折叠表达式
+通过折叠表达式构建初始化列表
+```
+template<typename T, typename... Args>
+std::vector<T> make_vector(Args&&... args) {
+    return {std::forward<Args>(args)...}; // 使用折叠构造初始化列表
+}
+```
 
 ### 折叠表达式
 
+分为
+1. 一元折叠
+2. 二元折叠
+
+
 ### 完美转发
+
+

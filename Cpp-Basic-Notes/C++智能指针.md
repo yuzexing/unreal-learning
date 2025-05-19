@@ -31,6 +31,20 @@ unique_ptr& operator=(const unique_ptr&) = delete;
 
 unique_ptr的开销：很低
 
+### API
+
+- get()
+- get_deleter(); // 获取删除器的引用
+- release(); // 放弃指针的控制权，由外部进行指针的回收
+- swap(ptr); // 交换两个智能指针的 ptr和deleter
+- reset(); null/ptr
+
+### deleter是什么？
+
+删除器``std::default_delete<T>``一般来说是一个函数对象，也可以是一个函数
+
+> 待补充
+
 ### shared_ptr 
 
 #### 用法：
