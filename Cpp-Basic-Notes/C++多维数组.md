@@ -88,8 +88,14 @@ int main() {
 
 ### 二维动态数组的初始化方式
 
+传统方法：
 ```
 vector<vector<int>> test(size1, vector<int>(size2, defaultValue));
 ```
 
+C++11的初始化列表：
+```
+vector<vector<int>> v{ {1,2,3} };
+```
+> 初始化列表神中神
 
