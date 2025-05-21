@@ -142,5 +142,22 @@ struct basic_string {
 [参考](https://stackoverflow.com/questions/3770781/why-is-sizeofstring-32)
 
 
+### 字符串或者字符转为整型
 
+场景1: char a = '1';转为int a = 1;
+```
+int a = '1' - '0'; // int a = 1;
+```
+原理：'1'的ASCII码值减去'0'的ASCII码值，等于'0'到'1'的距离
+
+
+场景2：string a = "123"; 转为int a = 123;
+```
+#include <string>
+
+string a = "123";
+int b = std::stoi(a); // C++11
+```
+
+[string-functions](https://learn.microsoft.com/zh-cn/cpp/standard-library/string-functions?view=msvc-170#stoi)
 
