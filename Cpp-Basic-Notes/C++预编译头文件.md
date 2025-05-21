@@ -100,5 +100,8 @@ int main() {
 [stackoverflow](https://stackoverflow.com/questions/903228/why-use-precompiled-headers-c-c)
 
 
+### 问题三：如果修改部分头文件后，是全部编译还是部分编译
 
+> 如果预编译头文件之间相互独立，没有依赖关系，则部分编译
+> 这种部分编译是有编译器保证的，叫做增量编译功能
 
