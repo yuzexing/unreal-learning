@@ -37,11 +37,11 @@ unique_ptr的开销：很低
 - get_deleter(); // 获取删除器的引用
 - release(); // 放弃指针的控制权，由外部进行指针的回收
 - swap(ptr); // 交换两个智能指针的 ptr和deleter
-- reset(); null/ptr
+- reset(); null/ptr // 获取目标指针的资源，放弃自己原本的资源
 
 ### deleter是什么？
 
-删除器``std::default_delete<T>``一般来说是一个函数对象，也可以是一个函数
+删除器``std::default_delete<T>``一般来说是一个函数对象(函数指针，lambda表达式，std::function等)
 
 > 待补充
 
