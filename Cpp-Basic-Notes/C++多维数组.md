@@ -86,6 +86,16 @@ int main() {
 }
 ```
 
+### 别名的方式
+```
+using ArrayType = int[4][5];
+ArrayType* array = new ArrayType[3];
+
+// 访问方式：
+array[1][2][3] = 42;
+```
+> 适用于固定数组
+
 ### 二维动态数组的初始化方式
 
 传统方法：
