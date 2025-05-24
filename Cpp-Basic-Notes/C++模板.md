@@ -35,3 +35,20 @@ int main() {
 
 模板既有好处又有坏处，当一个模板太过复杂，就最好不要使用模板，避免代码晦涩难懂
 
+
+### enable_if
+
+用来限制模板的生成条件
+
+原理：利用编译器的 SFINAE 原则，使得模板实例化失败但是不报错，从而匹配其他重载函数
+```
+template <typename T>
+typename enable_if<std::is_integral<T>::value, T>::type
+func(T t) {
+    return t;
+}
+func(1); // ok
+func(1.0); // error
+```
+SFINAE:Substitution Failure Is Not An Error
+
