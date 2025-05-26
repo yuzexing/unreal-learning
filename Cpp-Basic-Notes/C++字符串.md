@@ -163,3 +163,6 @@ stoi的记忆方法：**s**tring **to** **i**nteger
 
 [string-functions](https://learn.microsoft.com/zh-cn/cpp/standard-library/string-functions?view=msvc-170#stoi)
 
+### API
+
+substr(begin, len) // 从begin开始后的len长度的字符串元素
