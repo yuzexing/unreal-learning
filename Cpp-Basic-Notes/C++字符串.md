@@ -159,5 +159,7 @@ string a = "123";
 int b = std::stoi(a); // C++11
 ```
 
+stoi的记忆方法：**s**tring **to** **i**nteger
+
 [string-functions](https://learn.microsoft.com/zh-cn/cpp/standard-library/string-functions?view=msvc-170#stoi)
 
