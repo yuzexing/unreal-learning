@@ -25,7 +25,7 @@ SetRootComponent()
 
 ### StaticMeshComponent
 
-用于显示网格的组件
+用于显示网格的组件，适合静态Actor，性能更高
 
 > 继承自USceneComponent
 
@@ -33,10 +33,28 @@ SetRootComponent()
 
 骨骼网格组件
 
-用于绑定动画
+支持骨骼动画，适合动态任务
 > 继承自USceneComponent
 
-###  
+### UCameraComponent
+
+相机组件
+继承自：USceneComponent
+
+### USpringArmComponent
+
+旋转臂组件，常用于Camera和Actor之间，设置固定距离
+
+特点：
+1. 遇到碰撞会自动收缩，防止穿模和视线遮挡
+
+继承自：USceneComponent
+
+### GroomComponent
+
+毛发组件，用于头发或者眉毛等
+
+可以绑定mesh，附加socket
 
 > 待补充
 
