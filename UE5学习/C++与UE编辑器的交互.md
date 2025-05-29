@@ -18,6 +18,7 @@
 - Instance = 编辑器中的实例Detail
 - Visible 不可编辑
 - Edit 可编辑
-- Blueprint 
+- BlueprintReadOnly 表示事件图(EventGraph)可读
+- BlueprintReadWrite 表示事件图(EventGraph)可读可写
 
 
