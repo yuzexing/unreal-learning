@@ -1,4 +1,4 @@
-# 394. 字符串解码
+![image](https://github.com/user-attachments/assets/fd2a7e9e-47db-4473-8a76-1941657b0ec6)# 394. 字符串解码
 
 ### 初次提交
 
@@ -66,5 +66,70 @@ public:
 
 ### 分析
 时间复杂度O(n), 空间复杂度O(n), n为解码后的字符串长度
+
+### 二次提交
+```
+class Solution {
+public:
+    string getString(vector<string> stk) {
+        string res = "";
+        for (auto& s : stk) {
+            res += s;
+        }
+        return res;
+    }
+    string decodeString(string s) {
+        vector<string> stk;
+        stk.reserve(s.size());
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == ']') {
+                vector<string> target;
+                while (stk.back() != "[") {
+                    target.push_back(stk.back());
+                    stk.pop_back();
+                }
+                stk.pop_back();
+                std::reverse(target.begin(), target.end());
+                int t = std::stoi(stk.back());
+                stk.pop_back();
+                string res;
+                string sub = getString(target);
+                while (t > 0) {
+                    res += sub;
+                    t--;
+                }
+                stk.push_back(res);
+            }
+            else if (isdigit(s[i])) {
+                string digit(1, s[i]);
+                for (int j = i + 1; j < s.size(); j ++) {
+                    if (isdigit(s[j])) {
+                        digit += s[j];
+                        i = j;
+                    } else {
+                        break;
+                    }
+                }
+                stk.push_back(digit);
+            } else if (s[i] == '[' || isalpha(s[i])) {
+                stk.push_back(string(1, s[i]));
+            }
+        }
+        
+        return getString(stk);
+    }
+};
+```
+
+
+### 结果
+![image](https://github.com/user-attachments/assets/d6201833-f192-4f61-9de9-023e4bffd22f)
+
+### 分析
+
+看完题解得出的答案，优化在于对数字的读取；还有对于使用vector<string>作为子串容器，有点难想到
+
+
+
 
 
