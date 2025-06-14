@@ -1,0 +1,53 @@
+# 45. 跳跃游戏 II
+
+### 初次提交
+```
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        // 使用一个数组记录从当前位置需要多少跳，才能实现k次跳跃。
+        vector<int> times;
+        times.reserve(nums.size());
+        times.emplace_back(1);
+        for (int i = nums.size() - 2; i >= 0; i --) {
+            int currentJumpRange = nums[i];
+            for (int j = 0; j < times.size(); j ++) {
+                if (currentJumpRange >= times[j]) {
+                    if (j == times.size() - 1) {
+                        times.push_back(1);
+                        times[j] += 1;
+                    } else {
+                        times[j + 1] = 1;
+                        times.resize(j + 2);
+                        times[j] += 1;
+                    }
+                    break;
+                }
+                times[j] += 1;
+            }
+        }
+        for (int i = 0; i < times.size(); i++) {
+            if (times[i] == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+};
+```
+
+### 结果
+
+
+### 分析
+
+时间复杂度O(n²)，空间复杂度O(n)
+算法思想：动态规划
+
+### 二次提交
+
+
+### 结果
+
+### 分析
+
