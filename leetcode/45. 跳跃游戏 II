@@ -45,7 +45,37 @@ public:
 算法思想：动态规划
 
 ### 二次提交
-
+```
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        if (nums.size() == 1) {
+            return 0;
+        }
+        // 记录当前一跳加下一跳能够到达的最远距离 1
+        int jumpTimes = 0;
+        int targetIndex = nums[0];
+        int maxIndex = nums[0];
+        for (int i = 0; i < nums.size(); i ++) {
+            int currentJumpRange = nums[i];
+            if (targetIndex >= nums.size() - 1) {
+                return jumpTimes + 1;
+            }
+            if (maxIndex >= nums.size() - 1) {
+                return jumpTimes + 2;
+            }
+            if (i == targetIndex) {
+                jumpTimes += 1;
+                maxIndex = max(maxIndex, currentJumpRange + i);
+                targetIndex = maxIndex;
+            } else {
+                maxIndex = max(maxIndex, currentJumpRange + i);
+            }
+        }
+        return jumpTimes;
+    }
+};
+```
 
 ### 结果
 
