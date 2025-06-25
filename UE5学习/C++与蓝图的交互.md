@@ -32,3 +32,26 @@ C++调用方式obj->Execute_func(obj, param);
 
 调用者：C++
 
+### C++关联蓝图中定义的组件
+
+通过：BindWidget、BindWidgetOptional。
+关键：名称需相同
+场景：C++访问Widget Blueprint中的组件
+
+代码实例：
+```
+UCLASS()
+class MYGAME_API UMyUserWidget : public UUserWidget
+{
+    GENERATED_BODY()
+
+protected:
+    virtual void NativeConstruct() override;
+
+    UPROPERTY(meta=(BindWidget))
+    UProgressBar* HealthBar;
+};
+```
+
+
+
