@@ -6,3 +6,7 @@ Shift + 左键拖动标签(Montage/Sound)，可以使得动画进度条一起移
 ### Content Browser
 Ctrl + B
 
+### live coding
+
+Ctrl + Alt + F11
+
