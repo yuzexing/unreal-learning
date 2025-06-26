@@ -25,6 +25,12 @@
 
 ``Save Cached Pose`` 是用于缓存一次已经计算好的动画姿势，通过``Use Cached Pose``可以多次复用而不必重复计算。
 
+### 对象池
+
+Spawn 、Destroy Actor较为消耗性能，尤其是在频繁的Spawn和Destory时，考虑使用对象池
+
+TODO:使用对象池实现Soul和Gold的生成销毁
+
 
 
 ### 待补充
