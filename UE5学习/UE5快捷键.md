@@ -10,3 +10,8 @@ Ctrl + B
 
 Ctrl + Alt + F11
 
+### 蓝图变量快速Getter/Setter
+
+Alt + 左键拖动变量至蓝图，Setter
+
+Ctrl + 左键拖动变量至蓝图，Getter
