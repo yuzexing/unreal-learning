@@ -32,6 +32,20 @@ Spawn 、Destroy Actor较为消耗性能，尤其是在频繁的Spawn和Destory�
 TODO:使用对象池实现Soul和Gold的生成销毁
 
 
-
 ### 待补充
+
+## 动画蓝图方面
+
+### 动画蓝图模板
+
+1. 动画蓝图内部使用SequencePlayer 、BlendSpacePlayer而不是具体的骨骼动画
+2. 将公共资源公开引脚，通过变量传入
+3. 通过配置变量使用通用动画蓝图模板
+
+
+
+
+
+
+
 
