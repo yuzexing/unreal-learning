@@ -66,3 +66,27 @@ TODO:使用对象池实现Soul和Gold的生成销毁
 1. 仅做物理模拟，组件会参与物理碰撞处理（如重力推移、刚体反弹、物体阻挡）
 2. 不会被射线检测，重叠检测，碰撞检测等
 
+## BUG方面
+
+### Destructible Actor Spawn Actor Error
+
+现象：可破坏物被击碎并击飞后，无法在原地产生宝藏
+
+处理1：设置``AlwaysSpawn``
+```
+FActorSpawnParameters Params;
+Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+```
+结果：依然无法生成
+
+处理2：关闭宝藏碰撞
+1. 发现存在两个``collision Presets``
+2. 将两个都设置为``No Collision``后，正常Spawn
+
+![25ea124b9efdf6e7a2c0051978829697](https://github.com/user-attachments/assets/e3825c34-bdd2-47cc-a7c0-3a009d3d84cb)
+
+
+
+
+
+
