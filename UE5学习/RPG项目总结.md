@@ -79,7 +79,7 @@ Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::Alwa
 ```
 结果：依然无法生成
 
-处理2：将宝藏Sphere组件与Destructible类型的对象的overlay事件关闭
+处理2：忽略宝藏中Sphere组件与Destructible类型的对象的overlay事件
 结果：成功
 
 
