@@ -35,6 +35,13 @@ TODO:使用对象池实现Soul和Gold的生成销毁
 将抗锯齿调整为：Temporal Anti-Aliasing
 阴影贴图改为：Shadow Map
 
+### 函数内联
+合理使用``FORCEINLINE``或者`INLINE``，增加代码执行速度
+
+### const引用传递
+引用/指针传递避免拷贝，如果不涉及修改，则申明为const参数和函数
+
+> const提高语义，编译器可以更放心的做优化
 
 ### 待补充
 
