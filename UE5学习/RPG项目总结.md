@@ -31,6 +31,10 @@ Spawn 、Destroy Actor较为消耗性能，尤其是在频繁的Spawn和Destory�
 
 TODO:使用对象池实现Soul和Gold的生成销毁
 
+### 树木导致的FPS降低
+将抗锯齿调整为：Temporal Anti-Aliasing
+阴影贴图改为：Shadow Map
+
 
 ### 待补充
 
@@ -54,6 +58,4 @@ TODO:使用对象池实现Soul和Gold的生成销毁
 
 1. 仅做物理模拟，组件会参与物理碰撞处理（如重力推移、刚体反弹、物体阻挡）
 2. 不会被射线检测，重叠检测，碰撞检测等
-
-
 
