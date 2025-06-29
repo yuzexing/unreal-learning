@@ -79,12 +79,8 @@ Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::Alwa
 ```
 结果：依然无法生成
 
-处理2：关闭宝藏碰撞
-1. 发现存在两个``collision Presets``
-2. 将两个都设置为``No Collision``后，正常Spawn
-
-![25ea124b9efdf6e7a2c0051978829697](https://github.com/user-attachments/assets/e3825c34-bdd2-47cc-a7c0-3a009d3d84cb)
-
+处理2：将mesh和capsule的碰撞都关闭
+结果：成功
 
 
 
