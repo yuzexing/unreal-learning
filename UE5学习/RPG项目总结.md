@@ -82,6 +82,9 @@ Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::Alwa
 处理2：忽略宝藏中Sphere组件与Destructible类型的对象的overlay事件
 结果：成功
 
+### 打包时FORCEINLINE方法链接不到
+
+将方法改为非``FORCEINLINE``方法，或者将函数定义与声明放在一起
 
 
 
