@@ -34,5 +34,6 @@ DrawDebugSphere(world, location, radius, fragment, FColor::Green, true);
 
 > C++类不会自动添加场景组件，但是继承自Actor的蓝图类会有
 
-> 对于include VS2022中创建的头文件 "header.h"，会一直提示找不到文件。很怪的bug
+> 问题：对于include VS2022中创建的头文件 "header.h"，会一直提示找不到文件。很怪的bug
+> 已解决，在vs2022中创建的.h文件默认是在Intermediate文件夹中，所以找不到
 
