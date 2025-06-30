@@ -87,5 +87,10 @@ Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::Alwa
 将方法改为非``FORCEINLINE``方法，或者将函数定义与声明放在一起
 
 
+### 除了范围武器消失
+
+怎么解决
+
+### 打包后AI导航失效
 
 
