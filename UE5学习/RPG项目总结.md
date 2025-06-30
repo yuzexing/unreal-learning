@@ -86,11 +86,10 @@ Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::Alwa
 
 将方法改为非``FORCEINLINE``方法，或者将函数定义与声明放在一起
 
+### 出了世界分区后武器消失
 
-### 除了范围武器消失
-
-怎么解决
+将武器Actor的``Is Spatially Loaded``置为``False``
 
 ### 打包后AI导航失效
 
-
+手动build Paths
