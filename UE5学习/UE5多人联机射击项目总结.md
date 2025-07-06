@@ -32,5 +32,30 @@ SteamDevAppId=480
 bInitServerOnClient=true // 必须加上这行才能找到创建的会话
 ```
 
+### UE5.6 JoinSession失败/Connection Loss
+
+1. 开启``Steam Sockets``插件
+2. 增加``DefaultEngine.ini``配置
+3. 参考``Create``/``FindSesion``的配置
+
+```
+// DefaultEngine.ini
+[/Script/Engine.GameEngine]
+!NetDriverDefinitions=ClearArray
++NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="/Script/SteamSockets.SteamSocketsNetDriver",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")
+[OnlineSubsystem]
+DefaultPlatformService=Steam
+
+[OnlineSubsystemSteam]
+bEnabled=true
+SteamDevAppId=480
+bInitServerOnClient=true
+
+[/Script/OnlineSubsystemSteam.SteamNetDriver]
+NetConnectionClassName="OnlineSubsystemSteam.SteamNetConnection"
+```
+
+
+
 
 > 待补充
