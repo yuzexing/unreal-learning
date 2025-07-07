@@ -43,6 +43,12 @@ TODO:使用对象池实现Soul和Gold的生成销毁
 
 > const提高语义，编译器可以更放心的做优化
 
+### 减少开方计算
+
+例如：
+1. 在求两点间距离时，使用切比雪夫距离/曼哈顿距离而不是欧氏距离
+2. 求``Vector.Size()``可以使用``Vector.SizeSquared()``
+
 ### 待补充
 
 ## 动画蓝图方面
@@ -87,6 +93,14 @@ Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::Alwa
 将方法改为非``FORCEINLINE``方法，或者将函数定义与声明放在一起
 
 ### 出了世界分区后武器消失
+
+原因：``World partition``导致的所属区域即其中Actor被卸载
+解决：添加属性不被卸载
+
+
+###
+
+
 
 将武器Actor的``Is Spatially Loaded``置为``False``
 
