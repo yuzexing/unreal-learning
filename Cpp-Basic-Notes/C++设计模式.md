@@ -134,39 +134,30 @@ int main()
 
 > 需要一个全局唯一的可操作的实例时，例如网络通信的socket，获取随机数，数据库连接池，线程池等
 
-
 ### MVC
 
-1. Model层是业务无关的数据存储和基础操作
-2. View层是业务无关的界面展示与用户交互
-3. 所有的业务逻辑都放在Controller层去操作
+核心思想：Controller 改变 Model，Model 驱动 View 刷新
 
-优点：
-1. 这样使得每个模块都分工明确，数据/业务/UI完全分离
-2. 可读性高
+1. Model层职责为数据存储与底层数据交互
+2. View层职责为界面展示
+3. Controller层职责是响应用户操作
 
-缺点：
-1. Controller层过于庞大，后期难以维护
+UE中MVC的例子：
+1. Model层：Pawn/Character
+2. View层: StaticMeshComponent/SkeletalMeshComponent
+3. Controller层：PlayerController
 
-数据流：
-1. 传统是单向数据流
-2. 也有其他的理解方式，例如C可以传递数据至V
-
-驱动方式：数据驱动
+过程：
+1. 通过InputComponent绑定映射
+2. 按键回调中控制pawn
 
 ### MVVM
-
-1. 
 
 > 待补充
 
 ### MVC和MVVM的区别
 
-首先都是数据驱动的业务分离设计方式
-
-区别：
-1. MVVM中V和M不会直接通信，MVC中可以
-2. MVC的Controller可能会过于臃肿，而MVVM中的VM较轻量
+> 待补充
 
 
 ### 工厂模式
