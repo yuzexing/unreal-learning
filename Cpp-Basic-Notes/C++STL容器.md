@@ -1,194 +1,149 @@
+# C++ STL 容器
 
-# C++STL容器
+---
 
-### Vector
+## Vector
 
-构造函数
+### 构造函数
 
-使用 vector<int> v(i); // 初始化i个，元素值为0的vector
-
-使用 vector<int> v(i, j); // 初始化 i个 元素为j的vector
-
-使用 vector<int> v = { i, i, i }; // 手动指定某个元素以及数量作为初始化
-
-拷贝构造函数
-
-vector<int> v1
-
-vector<int> v2(v1.begin(), v1.end()); // 左闭右开，v1.end指向容器最后一位的后一位
-
-常用api
-
-push_back();
-
-front(); // 返回容器第一个元素的引用
-
-back(); // 返回容器最后一个元素的引用
-
-begin() // 该迭代器指向向量第一个元素
-
-end()  //该迭代器指向向量最后一个元素之后的元素
-
-rbegin()
-
-rend()
-
-resize(); // 重新分配内存大小
-
-emplace_back(); // 就地构造插入数组尾部
-
-emplace(); // position , args
-
-erase(); // iterator 或迭代器的起始位置。返回除了**删除元素后**，**未遍历的第一个元素的
-迭代器**
-
-insert() // 在指定的迭代器位置插入N个元素, it, N, val，当N=1时，可以省略
-
-pop_back() // 删除最后
-
-
+```cpp
+vector<int> v(i);           // 初始化i个0
+vector<int> v(i, j);        // 初始化i个j
+vector<int> v = {1, 2, 3};  // 手动指定初始化
 ```
+
+### 拷贝构造
+
+```cpp
+vector<int> v1;
+vector<int> v2(v1.begin(), v1.end()); // 左闭右开
+```
+
+### 常用 API
+
+* `push_back(val)`
+* `emplace_back(args...)` 就地构造插入
+* `emplace(pos, args...)`
+* `insert(pos, val)` / `insert(pos, n, val)`
+* `erase(pos)` / `erase(start, end)`
+* `pop_back()`
+* `resize(n)`
+* `front()` / `back()`
+* `begin()` / `end()`
+* `rbegin()` / `rend()`
+
+> 说明: `begin()` 和 `rbegin()` 不可相比
+
+### 示例: 迭代删除
+
+```cpp
 vector<int> v{1,2,3,4,5};
-for (auto it = v.begin(); it != v.end(); /*do not ++it*/) {
+for (auto it = v.begin(); it != v.end(); ) {
     printf("%d\n", *it);
-    it = v.erase(it);
+    it = v.erase(it); // 删除当前元素
 }
 ```
 
-细节：其中begin()获取的迭代器不能和rbegin()/rend()迭代器进行比较
+[vector API 参考](https://learn.microsoft.com/zh-cn/cpp/standard-library/vector-class?view=msvc-170)
 
-[参考api](https://learn.microsoft.com/zh-cn/cpp/standard-library/vector-class?view=msvc-170)
+---
 
-### Set
+## Set
 
-常用api\
-erase：删除元素
+* 唯一元素
+* 有序
+* 常用: `insert`, `erase`, `find`, `count`, `contains (C++20)`
 
-### unordered_Set
+## unordered\_set
 
-常用api
+* 无序
+* 快速 O(1) 接口
+* 最坏情况下性能差
+* API: `insert`, `erase`, `find`, `count`, `contains (C++20)`
 
-insert
+---
 
-find
+## Map
 
-count() // 只有0或1
+* 有序，key 唯一
+* 可反向迭代
 
-contains C++20
+### API
 
-与set的区别
-> O(1)的元素访问
-> 最坏情况下的区别
+* `insert`
+* `find`
+* `erase` (by key or iterator)
+* `contains` (C++20)
+* `empty`
+* `size`
+* `clear`
+* `begin()` / `end()`
+* `count()` // 只有0或1
+* `value_type` // pair\<const Key, T>
 
-### Map
+## unordered\_map
 
-特性：
-1. 大小可变的关联容器
-2. 可逆（双向迭代器）
-3. 有序（按键排序，可通过构造函数中模板指定排序类）
-4. 唯一
+* 无序
+* API同 map
 
-常见API:
+---
 
-1. insert
-2. begin
-3. end
-4. clear
-5. contains(C++20)
-6. erase // 可传入迭代器 或者迭代器的起点和终点，或者传入key
-7. find
-8. empty
-9. size
-10. count // 0/1
-11. value_type 允许在map中存储的元素的对象类型
+## deque
 
+* 双端队列结构
+* 适用于做 stack / queue 的基类
 
-### unordered_Map
+### API
 
-count() // 只有0或1
+* `push_back`, `push_front`
+* `pop_back`, `pop_front`
+* `front()`, `back()`
+* `empty()`
 
-### deque
-双端存储的数据结构，通常是栈/队列中封装的容器
+---
 
-常用方法：
-push_back
+## queue
 
-push_front
+* 先入先出 (FIFO)
 
-pop_front
+### API
 
-pop_back
+* `push()`
+* `pop()`
+* `front()`
+* `empty()`
 
-fornt()
+## stack
 
-back()
+* 先入后出 (LIFO)
 
-empty()
+### API
 
-### queue
+* `push()`
+* `pop()`
+* `top()`
+* `empty()`
 
-front() // 返回队列第一个元素
+---
 
-pop(); // 删除队列第一个元素
+## string (std::string)
 
-push(); // 进队一个元素
+* 字符字组容器，拥有 SSO (短字符串优化)
 
-### stack
+### 迭代器 API
 
-push(); // 入栈
+* `begin()`, `end()`
+* `cbegin()`, `cend()` // const\_iterator
+* `rbegin()`, `rend()` // 反向迭代
 
-pop(); // 出栈
+### 操作
 
-top(); // 返回栈顶的元素
+* `at(pos)` / `operator[]`
+* `front()`, `back()`
+* `data()` // 指向首字符的指针
+* `push_back(ch)`, `pop_back()`
+* `insert(pos, str)`
+* `replace(pos, len, str)`
+* `append(str)`
 
-
-### string
-
-字符容器，拥有短字符串优化，超过一定长度会在堆内存中分配
-
-迭代器的常见api:
-begin
-
-cbegin
-
-end
-
-cend() // 常量迭代器
-
-rbegin
-
-rend() // 常量迭代器
-
-访问：
-
-at
-
-[]操作符
-
-front()
-
-back()
-
-data() 返回指向第一个字符的指针
-
-push_back() 
-
-pop_back()
-
-replace()
-
-insert()
-
-append() // 将一段字符加入string
-
-
-[basic_string](https://en.cppreference.com/w/cpp/string/basic_string)
-
-### 注意事项
-
-- 为什么在实例化模板类时，不指定模板参数类型编译器会报错？例如
-- ![image](https://github.com/user-attachments/assets/e57c4384-6b97-4a7b-952b-03e501cdad70)
-
-todo 学习模板和类的区别，学习静态类型语言和动态类型语言的区别。
-
-
+[详情见 cppreference](https://en.cppreference.com/w/cpp/string/basic_string)
