@@ -19,8 +19,6 @@ UE采用UHT的方式搜集并生成反射所需代码，跟随源代码一起编
 
 ### 消费元数据
 
-通过一个TMap<FName>
-
 通过``FindClass``,``FindPropertyByName``,``FindFunctionByName``等使用元数据
 
 其中返回的UClass* 包含了元数据以及响应的构造函数指针。
