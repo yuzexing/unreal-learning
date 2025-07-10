@@ -19,3 +19,10 @@ UE采用UHT的方式搜集并生成反射所需代码，跟随源代码一起编
 
 ### 消费元数据
 
+通过``FindClass``,``FindPropertyByName``,``FindFunctionByName``等使用元数据
+
+其中返回的UClass* 包含了元数据以及响应的构造函数指针。
+
+``FindPropertyByName``内部通过记录成员的偏移量实现
+
+``FindFunctionByName``内部通过记录对应的函数指针实现
