@@ -11,6 +11,20 @@ std::array
 
 尽量使用std::array这样的C++风格的静态数组，而不是C风格的数组。
 
+初始化
+```
+// 初始化一个大小为10的int数组，所有元素为0
+std::array<int, 10> arr1 = {0};
+std::array<int, 10> arr1{};
+
+// 初始化一个大小为10的int数组，前两个元素为34和45，其余为0
+std::array<int, 10> arr2 = {34, 45};
+
+// 使用fill()函数将所有元素设置为4
+std::array<int, 10> arr3;
+arr3.fill(4);
+```
+
 部分源码展示:
 ```
 _EXPORT_STD template <class _Ty, size_t _Size> // _Size
