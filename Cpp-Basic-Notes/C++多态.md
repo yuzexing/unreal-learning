@@ -107,6 +107,8 @@ int main() {
 
 在继承的情况下，由于构造函数的顺序执行，会不断的更新虚表指针，直到最派生类(子类)的构造函数执行时，将虚表指针指向该最派生类对应的虚函数表。
 
+特别的，在析构函数中，也会更新虚表指针(指向当前类的虚表)，避免在析构函数中执行已被析构的子类中的虚函数。
+
 [stackoverflow](https://stackoverflow.com/questions/6591859/when-does-the-vptr-pointing-to-vtable-get-initialized-for-a-polymorphic-class)
 
 虚函数表是一个函数指针数组
