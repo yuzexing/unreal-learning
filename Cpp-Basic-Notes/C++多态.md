@@ -111,7 +111,9 @@ int main() {
 
 [stackoverflow](https://stackoverflow.com/questions/6591859/when-does-the-vptr-pointing-to-vtable-get-initialized-for-a-polymorphic-class)
 
-虚函数表是一个函数指针数组
+> 虚函数表是一个函数指针数组
+
+总结：构造函数/析构函数中调用虚函数，会执行当前类中的虚函数，而不是派生类(未构造或已析构)。
 
 ### 问题一：每一个类是否只有一个虚函数表？虚表指针是否可以继承？
 
