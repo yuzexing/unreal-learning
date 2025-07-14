@@ -64,7 +64,37 @@ int main() {
 }
 ```
 
-析构函数常常是虚函数，如果不是虚函数，则只会调用父类的析构函数，无法调用子类析构函数。
+析构函数常常是虚函数，如果不是虚函数，则``在多态下``只会调用父类的析构函数，无法调用子类析构函数。
+
+#### 实例代码：
+```
+class A {
+public:
+	A() {
+		cout << "A con" << endl;
+	}
+	A(int a) {
+	}
+	virtual ~A() {
+		cout << "A des" << endl;
+	}
+};
+class B : public A {
+public:
+	B() {
+		cout << "B con" << endl;
+	}
+	~B() {
+		cout << "B des" << endl;
+	}	
+};
+int main() {
+	A* b = new B();
+	delete b;
+	// A des
+	// no B des
+}
+```
 
 
 ### 虚函数表
