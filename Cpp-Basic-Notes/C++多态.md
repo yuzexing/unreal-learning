@@ -75,7 +75,7 @@ public:
 	}
 	A(int a) {
 	}
-	virtual ~A() {
+	/*virtual */~A() {
 		cout << "A des" << endl;
 	}
 };
@@ -91,7 +91,7 @@ public:
 int main() {
 	A* b = new B();
 	delete b;
-	// A des
+	// only A des
 	// no B des
 }
 ```
