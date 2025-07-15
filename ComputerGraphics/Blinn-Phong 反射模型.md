@@ -1,5 +1,16 @@
 # Blinn-Phong 反射模型
 
+### 整体结构
+
+<img width="894" height="481" alt="image" src="https://github.com/user-attachments/assets/3ea112c4-775b-4ef7-af6a-571ab59537d0" />
+
+环境光 + 漫反射 + 镜面反射 = 布灵冯反射模型
+
+
+
+
+
+
 前提：
 1. 对于一个局部的点来说，可以考虑他是平面
 2. 暂时不考虑周围的环境光对其的影响
