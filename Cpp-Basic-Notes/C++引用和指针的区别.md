@@ -47,18 +47,6 @@ int main() {
 [cppreference](https://en.cppreference.com/w/cpp/language/reference)|
 [stackoverflow](https://stackoverflow.com/questions/334856/are-there-benefits-of-passing-by-pointer-over-passing-by-reference-in-c/334944)
 
-### 右值引用
-不太明白
-```
-const int& c = 6;
-```
-> 待补充 
-
-### 左值 右值 左值引用 右值引用
-
-> 补充临时变量生命周期，为什么会被const 引用扩展？
-
-> 待补充
 [move](https://en.cppreference.com/w/cpp/utility/move)|
 [zhihu](https://zhuanlan.zhihu.com/p/335994370)|
 [wiki](https://en.wikipedia.org/wiki/Reference_%28C%2B%2B%29?)
