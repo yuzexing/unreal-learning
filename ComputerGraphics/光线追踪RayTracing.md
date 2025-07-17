@@ -108,7 +108,14 @@
 
 <img width="390" height="262" alt="image" src="https://github.com/user-attachments/assets/2ff9b5b6-7158-4df3-afab-d69d7e968418" />
 
+需要合适的网格划分数量，常见的是27*object数量
 
-### 
+优势：
+1. 当物体多且在空间中分布均匀时，效率较高
+
+劣势：
+1. 不适用于物体少，空间大的场景
+
+### 八叉树
 
 
