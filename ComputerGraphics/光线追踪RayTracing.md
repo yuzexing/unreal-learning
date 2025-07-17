@@ -120,8 +120,24 @@
 
 <img width="150" height="231" alt="image" src="https://github.com/user-attachments/assets/e09e6c40-f797-4e89-863a-8d79ca56cfaa" />
 
+1. 递归的将空间等分为8份盒子
+2. 先对盒子做交点检测
+3. 再对其中的物体做交点检测
 
+缺点；
+1. 节点数量多，占用空间大
+2. 空间划分不灵活
 
-相比于Kd树，八叉树
+### KD树
+
+1. 按xy,yz,zx平面轮流划分空间
+2. 划分位置灵活
+3. 仅在叶子节点存储物体指针
+
+<img width="397" height="244" alt="image" src="https://github.com/user-attachments/assets/ba45727c-2f5b-4fda-a26c-0c18cec3f23d" />
+
+存在的问题：
+1. 物体可能跨多个盒子空间，需要被多次检测
+2. 物体与盒子的相交判定难计算
 
 
