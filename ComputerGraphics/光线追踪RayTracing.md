@@ -166,7 +166,7 @@
 
 ### BVH图示：
 
-算法：递归的判断
+算法：递归的与包围盒进行判断，直到抵达叶子节点
 
 <img width="424" height="218" alt="image" src="https://github.com/user-attachments/assets/f3b44e20-ed30-4a0b-9ef3-cc77bb607d10" />
 
