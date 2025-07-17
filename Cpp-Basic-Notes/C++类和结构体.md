@@ -153,9 +153,7 @@ b.func(); // virtual修饰为打印B，无virtual修饰则打印A
 
 #### 虚函数的底层实现
 
-
-> 补充 虚函数实现的逻辑（多态+虚函数指向正确的函数）
-
+[虚函数实现](https://github.com/yuzexing/unreal-learning/blob/main/Cpp-Basic-Notes/C%2B%2B%E5%A4%9A%E6%80%81.md#%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8)
 
 ### 纯虚函数
 ```
