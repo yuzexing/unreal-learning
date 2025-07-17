@@ -118,4 +118,10 @@
 
 ### 八叉树
 
+<img width="150" height="231" alt="image" src="https://github.com/user-attachments/assets/e09e6c40-f797-4e89-863a-8d79ca56cfaa" />
+
+
+
+相比于Kd树，八叉树
+
 
