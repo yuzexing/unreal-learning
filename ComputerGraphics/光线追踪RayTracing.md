@@ -163,3 +163,12 @@
 2. 从中位数个三角形开始划分
 
 划分终止条件：到一定三角形数量停止
+
+### BVH图示：
+
+算法：递归的判断
+
+<img width="424" height="218" alt="image" src="https://github.com/user-attachments/assets/f3b44e20-ed30-4a0b-9ef3-cc77bb607d10" />
+
+<img width="428" height="292" alt="image" src="https://github.com/user-attachments/assets/1c5afcbd-ba97-445e-85bd-1945d627d4f7" />
+
