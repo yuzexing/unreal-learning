@@ -60,7 +60,8 @@ for (auto it = v.begin(); it != v.end(); ) {
 * 快速 O(1) 接口
 * 最坏情况下性能差
 * API: `insert`, `erase`, `find`, `count`, `contains (C++20)`
-
+* 底层实现：哈希表
+* reserve(int n); // 为哈希表预留空间，频繁的扩容会代价较高
 ---
 
 ## Map
@@ -85,6 +86,9 @@ for (auto it = v.begin(); it != v.end(); ) {
 
 * 无序
 * API同 map
+* 底层实现：哈希表
+
+reserve(int n); // 为哈希表预留空间，频繁的扩容会代价较高
 
 ---
 
