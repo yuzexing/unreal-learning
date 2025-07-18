@@ -96,6 +96,8 @@
 
 可能会被归还内存池，也可能会被操作系统回收，取决于分配方式是brk还是mmap
 
+[参考](https://zhuanlan.zhihu.com/p/311527161)
+
 ### free store和heap的区别
 
 > heap是操作系统上的概念，而free store是C++中的抽象概念，取决于new的底层实现，如果new是通过malloc实现的，那么free store=heap \
