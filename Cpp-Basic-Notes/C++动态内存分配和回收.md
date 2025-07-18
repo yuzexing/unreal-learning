@@ -32,7 +32,6 @@
 4. 如果还是不够，则分配器可以调用```sbrk```函数，向内核申请额外的堆内存。(同时调整```brk指针```)
 
 
-
 ### 问题一：通过new/malloc获取的指针是物理地址吗？
 
 > 虚拟地址。每一个虚拟页与一个真实页框相对应，由PCB中的页表实现地址转换。
@@ -52,12 +51,35 @@
 5. malloc/free只能用于单纯的内存分配和回收
 6. malloc和new申请的动态内存空间，尽量使用对应的方法进行释放（而不是new+free）
 7. new在自由区(free store)申请动态内存空间，而malloc在堆内存(heap)申请。
+8. new 分配失败会抛异常，malloc分配失败获得空指针
+9. new 分配内存自动计算大小，malloc分配内存需要手动计算内存大小
+
+### 问题一：malloc分配的是虚拟内存还是物理内存？
+
+虚拟内存
+
+### 问题二：malloc分配的内存是否立刻得到物理地址？
+
+不一定，因为malloc只分配虚拟内存，不会做初始化操作，只有在使用内存时，才会去获取物理内存，进行页表查询，进行物理内存分配
+
+而``new``操作符，会进行构造函数的调用，初始化成员变量
+
+### 问题三：虚拟内存和物理内存的区别
+
+通过``malloc``分配的虚拟内存，可能在页表中没有分配相应的物理内存，所以需要进入缺页中断，分配相应的物理内存(存储在磁盘/内存)
+
+### 问题四：free是如何知道释放多大的内存的？
+
+在malloc分配的内存块头部，会存放内存块的信息，通过内存块的信息知道释放多少内存
+
+### 问题五：free释放内存后，内存还在吗？
+
+可能会被归还内存池，也可能会被操作系统回收
 
 ### free store和heap的区别
 
 > heap是操作系统上的概念，而free store是C++中的抽象概念，取决于new的底层实现，如果new是通过malloc实现的，那么free store=heap \
 > 个人感觉free store是C++为了兼容性而衍生出来的概念。
-
 
 [stackoverflow](https://stackoverflow.com/questions/240212/what-is-the-difference-between-new-delete-and-malloc-free)|
 [microsoft](https://learn.microsoft.com/en-us/cpp/cpp/new-operator-cpp?view=msvc-170)|
