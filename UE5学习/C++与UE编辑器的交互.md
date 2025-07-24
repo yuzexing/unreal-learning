@@ -21,4 +21,8 @@
 - BlueprintReadOnly 表示事件图(EventGraph)可读
 - BlueprintReadWrite 表示事件图(EventGraph)可读可写
 
+### UFUNCTION宏属性
 
+#### ``Server``表示只在服务端运行的函数
+
+#### ``Reliable``表示可靠传输，即使发生网络错误，也会进行重传
