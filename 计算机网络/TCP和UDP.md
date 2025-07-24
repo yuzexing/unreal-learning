@@ -44,8 +44,15 @@ TCP和UDP都属于传输层协议，
 
 ### TCP头部信息
 
+至少20字节
+
+<img width="366" height="200" alt="image" src="https://github.com/user-attachments/assets/25436d50-43b7-4237-8c99-7cac18a3f392" />
 
 ### UDP头部信息
+
+固定8字节
+<img width="344" height="103" alt="image" src="https://github.com/user-attachments/assets/5ffb0aee-04c3-49ac-b38c-c3938372385d" />
+
 
 ### 问题一：TCP如何保证可靠传输
 
