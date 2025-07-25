@@ -70,4 +70,26 @@ Pawn: bUseControllerRotationYaw = True; Pawn的旋转绑定PlayerController
 SpringBoom: usePawnControlRotation = True; 弹簧臂的旋转绑定PlayerController
 Camera:  usePawnControlRotation = True; 相机的旋转绑定PlayerController
 ```
+
+### 人物运动转向时的侧倾功能
+
+1. 记录人物每一帧的旋转角，主要是Yaw
+2. 当前帧-上一帧的角度(标准化)
+3. 将偏航角差值δyaw除以DeltaTime，求得当前帧的旋转状态下，每秒的旋转角度t
+4. 对lean进行插值，结果从lean至t
+
+#### 问题一：为什么要除以deltTime?
+
+> 用于消除帧率依赖，当帧率很高时，偏航角δyaw会很小，当帧率很低时，δyaw很大
+
+#### 问题二：为什么要对lean插值?
+
+> 用于对侧倾速度的平滑过渡
+> 如果不插值，直接使用t作为lean，那么会导致人物动画的过渡不平滑
+
+
+
+
+
+
 > 待补充
