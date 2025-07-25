@@ -92,10 +92,10 @@ Camera:  usePawnControlRotation = True; 相机的旋转绑定PlayerController
 
 当在动画蓝图中(Smooth)直接对欧拉角插值时，从-180到180的过渡时，会经过0到180，从而导致动画的异动
 
-解决办法：使用FMath::RInterp(R1, R2, dt, float);
+解决办法一：在C++中使用FMath::RInterp(R1, R2, dt, float);
 
 原理： 内部对角度做了标准化，求得最小旋转角度，允许从-180,180之间的角度过渡
 
-
+解决办法二：在动画蓝图中勾选``wrapInput``，允许超过最大值最小值时进行循环
 
 > 待补充
