@@ -86,7 +86,7 @@ Camera:  usePawnControlRotation = True; 相机的旋转绑定PlayerController
 
 > 用于对侧倾速度的平滑过渡
 > 如果不插值，直接使用t作为lean，那么会导致人物动画的过渡不平滑
-
+> 也可以不对lean插值，在混合空间中做平滑过渡（也是插值）
 
 
 
