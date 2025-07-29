@@ -98,4 +98,10 @@ Camera:  usePawnControlRotation = True; 相机的旋转绑定PlayerController
 
 解决办法二：在动画蓝图中勾选``wrapInput``，允许超过最大值最小值时进行循环
 
+### GetBaseAimRotation和GetActorRotation的区别
+
+GetBaseAimRotation 返回PlayerController的旋转角度，对于玩家，则返回镜头的旋转角度；对于Ai，返回眼睛的旋转角度；主要用于瞄准，视线方向等需求
+
+GetActorRotation 获取Actor在世界空间中的旋转角度
+
 > 待补充
