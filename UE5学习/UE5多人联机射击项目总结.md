@@ -104,4 +104,21 @@ GetBaseAimRotation 返回PlayerController的旋转角度，对于玩家，则返
 
 GetActorRotation 获取Actor在世界空间中的旋转角度
 
+### Rotator中的浮点数在网络传输中的压缩
+
+32位浮点数压缩至16位的**无符号**short，在网络传输后，角度从[-180,180)变为[0,360)
+
+解决办法：
+1. 重新做归一化
+2. 对于character的情况，可以将[270,360)的值映射为[-90, 0)
+
+```
+FVector2D InRange(270.f, 360.f);
+FVector2D OutRange(-90.f, 0.f);
+AO_PitchOffset = FMath::GetMappedRangeValueClamped(InRange, OutRange, AimRotation.Pitch);
+```
+
+``GetMappedRangeValueClamped``表示将输入映射到``OutRange``空间，大于或小于``InRange``边界时，按out边界输出
+
+
 > 待补充
