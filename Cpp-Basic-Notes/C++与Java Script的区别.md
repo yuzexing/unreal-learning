@@ -9,13 +9,13 @@
 
 - C++是编译成二进制的机器码进行执行；而js代码(先解析成抽象语法树(词法分析语法分析语义分析))通过解释器生成字节码，在由解释器执行字节码，当解释器在遇到热点代码时（多次执行的重复字节码代码），交由编译器编译成机器码，用于提升执行速度(节省解释执行的时间)。这种编译器+解释器成为JIT(即时编译)的技术
 
-<img width="766" height="912" alt="image" src="https://github.com/user-attachments/assets/93f19acd-2651-48f4-99a7-528ec6423937" />
+<img width="466" height="412" alt="image" src="https://github.com/user-attachments/assets/93f19acd-2651-48f4-99a7-528ec6423937" />
 
 
 补充：
 ### 问题一：字节码和机器码的内存占用情况？
 
-<img width="1142" height="314" alt="image" src="https://github.com/user-attachments/assets/9bda6d0c-9147-4b02-bc13-d4a39218be0e" />
+<img width="842" height="214" alt="image" src="https://github.com/user-attachments/assets/9bda6d0c-9147-4b02-bc13-d4a39218be0e" />
 
 字节码占用小，所以使用字节码
 
