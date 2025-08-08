@@ -34,13 +34,22 @@ UE5采用C/S架构，对于**单人游戏**或**本地多人游戏**，玩家输
 
 对于不连贯的移动，会做移动推算
 1. 对于``ROLE_AutonomousProxy``来自玩家的模拟代理，会有更多的信息做推算，相比于``ROLE_SimulatedProxy``
+2. 复制永远是单向的，只存在与服务端向客户端的**单向复制**
 
 ### Remote Role & Local Role
 
 1. ``Local Role``，用于区分客户端上的控制身份
 2. ``Remote Role``，用于区分服务端上的控制身份
 
-> 待补充
+通过这两个属性，能够知道：
+1. 谁拥有Actor的主控权(Authority)
+2. Actor是否被复制
+3. 复制模式
 
+1. 主控权判断： LocalRole == Authority
+2. Actor复制判断：LocalRole == Authority && RemoteRole == Simulate or Autonomous
+3. 复制模式判断：LocalRole中的 Autonomous表示本地玩家，Simulated表示从服务端的模拟代理
+
+> 补充：主控权是说某个Actor的数据是否权威，其他客户端上的数据是否来源于该Actor
 
 
