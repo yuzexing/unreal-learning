@@ -56,6 +56,8 @@ UE5采用C/S架构，对于**单人游戏**或**本地多人游戏**，玩家输
 
 > 补充：主控权是说某个Actor的数据是否权威，其他客户端上的数据是否来源于该Actor
 
+[参考](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/actor-role-and-remote-role-in-unreal-engine)
+
 ### Actor所有者和所属连接
 
 概念：
