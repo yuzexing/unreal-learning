@@ -16,6 +16,9 @@ UE5采用C/S架构，对于**单人游戏**或**本地多人游戏**，玩家输
 
 > 网络带宽: 单位时间内可以传输的数据
 
+[官方参考](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/networking-overview-for-unreal-engine)
+
+
 ### 问题一：如果说通过RPC像服务端发送操作，例如移动，那么当下一次RPC丢失了，角色是会进行移动预测吗？也就是说连续的状态在离散的RPC下是怎么做的？
 
 ### 问题二：如果说本地的操作
@@ -75,9 +78,13 @@ UE5采用C/S架构，对于**单人游戏**或**本地多人游戏**，玩家输
 2. 属性的复制，属性的条件复制可能会涉及到所属连接（暂时没有使用过）
 3. RPC，服务端执行到客户端的RPC时，需要由Actor的所属连接确定RPC的连接/发送的目标
 
+#### Actor所有者查询
 
+查询Actor的所有者，需要查询最外层Actor的所有者，是否是玩家控制器，是则Actor属于该玩家控制器
 
+组件查询所有者，先查询其从属链，直到找到所属Actor，再按照查询Actor的方式进行所有者查询
 
+[官方参考](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/actor-owner-and-owning-connection-in-unreal-engine)
 
 
 
