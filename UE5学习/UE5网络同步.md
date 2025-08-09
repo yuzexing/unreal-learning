@@ -88,6 +88,29 @@ UE5采用C/S架构，对于**单人游戏**或**本地多人游戏**，玩家输
 
 [官方参考](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/actor-owner-and-owning-connection-in-unreal-engine)
 
+### RPC类型
 
+1. Client RPC
+2. Server RPC
+3. Remote RPC
+4. MultiCast RPC
 
+[调用规则](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/remote-procedure-calls-in-unreal-engine#%E8%BF%9C%E7%A8%8Brpc)
+
+总结：
+1. 允许从客户端所有权的Actor上调用Server RPC，在服务端执行
+2. 服务端运行调用并在本地执行一切Server RPC
+3. 从客户端调用Client RPC只会在本地执行
+4. 从服务端调用Client RPC，在Actor所属的客户端/服务端执行
+5. 从客户端所属Actor上调用Remote RPC，会在服务端执行
+6. 从服务端上调用Remote RPC，在属于客户端的Actor时，会在其所属客户端执行
+7. 服务端执行的多播RPC会在所有客户端和服务端执行
+8. 客户端调用的多播RPC，只会在本地执行
+
+### RPC可靠性
+
+1. 可靠，确认应答，保证有序，超时重传，暂停后续所有RPC
+2. 不可靠，无序
+
+> 对于高频的操作，最好不使用可靠RPC，可能会导致队列溢出
 
