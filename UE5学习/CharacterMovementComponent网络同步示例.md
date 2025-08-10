@@ -47,5 +47,6 @@
 ### 问题五：服务端纠正客户端移动信息的条件是什么？
 
 1. 移动最终位置是否大于误差值
-2. 
+2. 是否超过最大的纠正间隔（避免纠正太频繁，增加带宽）
 
+[参考](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/understanding-networked-movement-in-the-character-movement-component-for-unreal-engine)
