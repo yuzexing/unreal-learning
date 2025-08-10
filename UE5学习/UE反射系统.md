@@ -21,6 +21,9 @@ UE采用UHT的方式搜集并生成反射所需代码，跟随源代码一起编
 1. 插入反射系统所需的元数据的定义
 2. 反射系统的注册函数
 
+[参考1](https://tongtunggiang.com/2021/ue-reflection1)|
+[参考2](https://www.unrealengine.com/es-ES/blog/unreal-property-system-reflection)
+
 #### 为什么是将反射数据写入代码？
 
 避免产生一致性问题，保证运行时获取最新的反射数据。
