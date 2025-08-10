@@ -18,7 +18,7 @@
 1. 自主代理使用**本地预测**实现连续的移动效果
 2. 权威服务端按照自主代理提供的移动数据做再现
 3. 如果无法再现，则向自主代理发出纠正
-4. 模拟代理完全使用服务端复制的数据，连续的移动通过**网络平滑**实现
+4. 模拟代理完全使用服务端复制的数据，连续的移动通过**网络平滑**实现(插值)
 
 
 ### 问题而：本地的SavedMoves 队列是什么？作用是什么？
@@ -30,3 +30,6 @@
 [参考](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/API/Runtime/Engine/GameFramework/FSavedMove_Character)
 
 ### 问题三：网络平滑是什么？怎么实现的？
+
+插值
+
