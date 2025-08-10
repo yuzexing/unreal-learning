@@ -5,7 +5,7 @@
 UE采用UHT的方式搜集并生成反射所需代码，跟随源代码一起编译。
 通过宏标记例如``UPROPERTY,UFUNCTION,UCLASS``等标记需要收集的元数据
 
-#### "xx.generate.h"文件是什么？
+### "xx.generate.h"文件是什么？
 
 是UHT生成的头文件，包含：
 1. 通过友元类定义反射数据结构体声明
@@ -15,7 +15,7 @@ UE采用UHT的方式搜集并生成反射所需代码，跟随源代码一起编
 
 > 时机：在编译时，UBT会调用UHT收集并生成该文件，然后进入预处理，编译，汇编，链接阶段
 
-#### GENERATED_BODY()是什么？
+### GENERATED_BODY()是什么？
 
 在预处理阶段时，进行宏展开，将xx.generate.h中定义的数据注入到类中
 1. 插入反射系统所需的元数据的定义
@@ -23,6 +23,10 @@ UE采用UHT的方式搜集并生成反射所需代码，跟随源代码一起编
 
 [参考1](https://tongtunggiang.com/2021/ue-reflection1)|
 [参考2](https://www.unrealengine.com/es-ES/blog/unreal-property-system-reflection)
+
+### 元数据和运行时的成员是怎么关联起来的？
+
+我的理解：类的内存模型是固定的，类成员在类中的地址偏移也是固定的，可以通过这个偏移量进行关联
 
 #### 为什么是将反射数据写入代码？
 
