@@ -120,5 +120,11 @@ AO_PitchOffset = FMath::GetMappedRangeValueClamped(InRange, OutRange, AimRotatio
 
 ``GetMappedRangeValueClamped``表示将输入映射到``OutRange``空间，大于或小于``InRange``边界时，按out边界输出
 
+### 为什么将生命值放到PlayerState里？而是放到Character或者HealthComponent里？
+
+> 1. PlayerState默认使用的低频的网络同步频率，大约是1s一次，生命值变动会比较频繁，不适合放到这里
+> 2. PlayerState如果设置了高频更新的频率，会复制不必要的信息从而占用带宽，例如ping值信息
+> 所以生命值信息不放在PlayerState里
+
 
 > 待补充
