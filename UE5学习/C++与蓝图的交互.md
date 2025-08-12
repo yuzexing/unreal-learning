@@ -53,5 +53,32 @@ protected:
 };
 ```
 
+### 运行中通过C++获取并创建蓝图类
+
+场景：
+1. C++类作为父类
+2. 蓝图类作为子类
+3. 在其他类中，需要创建蓝图类的实例
+
+> 使用``TSubclassOf``在编辑器中设置需要实例化的蓝图类
+举例：
+```
+// AGangsterHUD.h
+UPROPERTY()
+UHealthBarWidget* HealthBarWidget;
+
+UPROPERTY(EditAnywhere)
+TSubclassOf<UHealthBarWidget> HealthBarWidgetClass;
+
+// AGangsterHUD.cpp
+void AGangsterHUD::BeginPlay()
+{
+	Super::BeginPlay();
+	if (HealthBarWidgetClass) {
+		HealthBarWidget = CreateWidget<UHealthBarWidget>(GetWorld(), HealthBarWidgetClass);
+		HealthBarWidget->AddToViewport();
+	}
+}
+```
 
 
