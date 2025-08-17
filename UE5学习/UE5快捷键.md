@@ -15,3 +15,10 @@ Ctrl + Alt + F11
 Alt + 左键拖动变量至蓝图，Setter
 
 Ctrl + 左键拖动变量至蓝图，Getter
+
+### ContentBrowser搜索
+
+Type=类型 例如：
+
+Type=World
+
