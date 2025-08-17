@@ -3,6 +3,7 @@
 [生命周期文档](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/unreal-engine-actor-lifecycle#actor%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%BB%88%E7%82%B9)
 [垃圾回收文档](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/garbage-collection-settings-in-the-unreal-engine-project-settings)
 [UObject处理文档](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/unreal-object-handling-in-unreal-engine)
+[垃圾回收四部流程](https://dev.epicgames.com/community/learning/knowledge-base/ePKR/unreal-engine-garbage-collector-internals)
 
 ### Actor生命周期
 
