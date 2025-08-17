@@ -49,10 +49,11 @@ FORCEINLINE bool IsValid(const UObject *Test)
 
 问题一：为什么要使用UObjectPtr替换原始指针?
 
-UObjectPtr的64位中，额外的存放了对象的信息，支持：
+UObjectPtr的64位中，额外的存放了对象的信息，支持编辑器级别(非Release)的：
 1. 动态解析（懒加载）
 2. 信息封装
 
+> 待补充(https://zhuanlan.zhihu.com/p/504115127)
 
 ### 增量式垃圾回收
 
