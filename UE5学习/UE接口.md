@@ -32,7 +32,9 @@ bIsImplemented = OriginalObject->Implements<UReactToTriggerInterface>();
 IReactToTriggerInterface* ReactingObject = Cast<IReactToTriggerInterface>(OriginalObject);
 ```
 
-> 待补充 三种区别
+区别：
+1. ``Cast``只支持C++类，无法检测蓝图类，另外两种支持蓝图类
+
 
 
 
