@@ -35,6 +35,20 @@ IReactToTriggerInterface* ReactingObject = Cast<IReactToTriggerInterface>(Origin
 区别：
 1. ``Cast``只支持C++类，无法检测蓝图类，另外两种支持蓝图类
 
+### 对反射系统可见的接口指针
 
+当需要使用指针存储一个对象，该对象被Cast为接口时，例如：
+```
+IHightLightInterface* CurrentHit = Cast<IHightLightInterface>(HitResult.GetActor());
+```
+
+```
+UPROPERTY()
+TScriptInterface<IHightLightInterface> LastFrameHitActor;
+```
+可以使用``TScriptInterface``将该指针对反射系统可见，参与垃圾回收。
+
+
+[参考](https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Runtime/CoreUObject/UObject/TScriptInterface)
 
 
