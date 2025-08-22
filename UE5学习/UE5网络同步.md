@@ -120,9 +120,21 @@ UE5采用C/S架构，对于**单人游戏**或**本地多人游戏**，玩家输
 
 <img width="482" height="221" alt="image" src="https://github.com/user-attachments/assets/d8ee5254-e900-450a-8e09-8a8dc1191cf1" />
 
+### 网络同步的坑汇总
 
+### PlayerController和Character的关系
 
+假设多人联机下，每一个玩家控制一个角色，也就是一个PlayerController控制一个Character。
 
+需要考虑四种情况：
 
+1. 客户端，用户自己控制的角色
+2. 客户端，其他用户控制的角色
+3. 服务端，用户控制的角色（listen-server监听服务器下，非专用服务器）
+4. 服务端，其他用户控制的角色
+
+讨论：
+1. 1+2;只存在一个本地用户的PlayerController，和用户自己的Character + 其他用户的Character，此时在其他用户的Character中获取PlayerController是空的
+2. 服务端存在所有用户的PlayerController和所有的character，但是只有本地用户的PlayerController调用``GetLocalPlayer``是非空的。
 
 
