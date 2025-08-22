@@ -12,6 +12,7 @@
 6. EditDefaultsOnly
 7. BlueprintReadOnly
 8. BlueprintReadWrite
+9. BlueprintAssignable
 
 - AnyWhere = 实例 + Detail
 - Default = Detail，也就是CDO?
@@ -20,6 +21,7 @@
 - Edit 可编辑
 - BlueprintReadOnly 表示事件图(EventGraph)可读
 - BlueprintReadWrite 表示事件图(EventGraph)可读可写
+- BlueprintAssignable 仅用于动态代理，用于蓝图绑定事件
 
 ### UFUNCTION宏属性
 
