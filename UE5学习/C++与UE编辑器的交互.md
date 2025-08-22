@@ -23,8 +23,19 @@
 - BlueprintReadWrite 表示事件图(EventGraph)可读可写
 - BlueprintAssignable 仅用于动态代理，用于蓝图绑定事件
 
+### UClass 宏属性
+
+1. BlueprintType：表示将此类公开为可用于蓝图中的变量的类型
+2. Blueprintable：表示可以被蓝图继承
+
+[类说明符文档](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/class-specifiers)
+
 ### UFUNCTION宏属性
+
+
 
 #### ``Server``表示只在服务端运行的函数
 
 #### ``Reliable``表示可靠传输，即使发生网络错误，也会进行重传
+
+
