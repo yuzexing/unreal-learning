@@ -35,4 +35,8 @@ const UAttributeSet* UAbilitySystemComponent::GetAttributeSubobject(const TSubcl
 }
 ```
 
+### GAS中的GameplayEffect Components的作用
+
+[博客](https://www.quodsoler.com/blog/how-to-use-gameplay-effect-components-in-unreal-engine-5)
+
 > 待补充
