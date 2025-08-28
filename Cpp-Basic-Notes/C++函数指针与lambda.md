@@ -73,8 +73,23 @@ int main() {
 
 ### lambda表达式
 
-临时函数，不会发生链接(?)
+临时函数，不会发生链接，本质是一个"闭包类"。
 
+
+```
+struct lambda {
+   lambda(int x) : x(x) { }
+   int operator ()(int y) { return x + y; }
+
+private:
+   int x;
+};
+
+std::function<int(int)> meta_add(int x) {
+   lambda add(x);
+   return add;
+}
+```
 
 ```
 [=](int a) {
@@ -93,6 +108,22 @@ int main() {
 ``mutable``说明符表示允许修改捕获的目标，允许调用捕获对象的非``const``方法
 
 [cppreference](https://en.cppreference.com/w/cpp/language/lambda)
+
+> 只能捕获自动生命周期的变量，需要考虑被捕获的引用或者对象的生命周期
+
+### lambda表达式的生命周期
+
+捕获变量的生命周期
+1. 将捕获的变量，作为成员变量
+2. 创建对象，重写调用操作，执行函数
+
+> 所以：捕获的变量的生命周期分为两种：
+1. 引用或指针，生命周期由被捕获的变量决定
+2. 拷贝复制的变量，由lambda表达式决定
+
+lambda表达式的生命周期：
+
+1. 由持有lambda表达式的对象决定
 
 
 ### 原始函数指针与std::function
