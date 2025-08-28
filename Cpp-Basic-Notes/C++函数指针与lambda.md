@@ -75,7 +75,6 @@ int main() {
 
 临时函数，不会发生链接，本质是一个"闭包类"。
 
-
 ```
 struct lambda {
    lambda(int x) : x(x) { }
@@ -125,6 +124,7 @@ lambda表达式的生命周期：
 
 1. 由持有lambda表达式的对象决定
 
+[stackoverflow](https://stackoverflow.com/questions/7941562/what-is-the-lifetime-of-a-c-lambda-expression)
 
 ### 原始函数指针与std::function
 
