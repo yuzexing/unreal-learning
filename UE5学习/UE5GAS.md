@@ -50,4 +50,8 @@ const UAttributeSet* UAbilitySystemComponent::GetAttributeSubobject(const TSubcl
 
 [知乎](https://zhuanlan.zhihu.com/p/464303056)
 
+### 次级属性依赖关系
+
+<img width="1177" height="564" alt="image" src="https://github.com/user-attachments/assets/aa1d17e2-e375-413a-b993-b852185c4473" />
+
 > 待补充
