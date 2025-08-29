@@ -54,4 +54,22 @@ const UAttributeSet* UAbilitySystemComponent::GetAttributeSubobject(const TSubcl
 
 <img width="1177" height="564" alt="image" src="https://github.com/user-attachments/assets/aa1d17e2-e375-413a-b993-b852185c4473" />
 
+### ModifierMagnitudeCalculation为什么需要传入Tags?
+
+```
+float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffectSpec& Spec) const {
+	// return Super::CalculateBaseMagnitude_Implementation(Spec);
+	// 为什么要SourceTags和TargetTags？
+	FAggregatorEvaluateParameters EvaluationParameters;
+	EvaluationParameters.SourceTags = Spec.CapturedSourceTags.GetAggregatedTags();
+	EvaluationParameters.TargetTags = Spec.CapturedTargetTags.GetAggregatedTags();
+	float Vigor;
+	GetCapturedAttributeMagnitude(CaptureDef, Spec, EvaluationParameters, Vigor);
+	return Vigor;
+}
+```
+
+因为tags需要参与判断Must have tags、Must Not Have Tags和query Must match等设置，决定该MMC是否生效
+
+
 > 待补充
