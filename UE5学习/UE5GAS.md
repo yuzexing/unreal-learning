@@ -71,5 +71,11 @@ float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffec
 
 因为tags需要参与判断Must have tags、Must Not Have Tags和query Must match等设置，决定该MMC是否生效
 
+### Gameplay Ability中无需修改的设置
+
+1. 网络复制模式：因为GA只在服务端运行，从服务端复制到客户端
+2. 服务端允许客户端结束GA：应当以服务器为权威
+3. 直接复制输入：输入事件很频繁导致大量RPC汇聚到服务端，应当使用``Generic Replicated Events``替换
+
 
 > 待补充
