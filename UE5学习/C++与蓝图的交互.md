@@ -81,4 +81,9 @@ void AGangsterHUD::BeginPlay()
 }
 ```
 
+### 源码中K2前缀的意义
+
+表示蓝图可用，约等于BP，是Kismet 2的缩写
+
+
 
