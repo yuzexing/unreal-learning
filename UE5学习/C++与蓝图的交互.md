@@ -85,5 +85,11 @@ void AGangsterHUD::BeginPlay()
 
 表示蓝图可用，约等于BP，是Kismet 2的缩写
 
+### C++接口在蓝图中的使用
+
+在UInterface中添加``BlueprintType``，才可以在蓝图中可见
+
+注意：不是IInterface上添加
+
 
 
