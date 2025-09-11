@@ -77,5 +77,15 @@ float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffec
 2. 服务端允许客户端结束GA：应当以服务器为权威
 3. 直接复制输入：输入事件很频繁导致大量RPC汇聚到服务端，应当使用``Generic Replicated Events``替换
 
+### 创建GameplayEffect的流程和作用
+
+1.  MakeEffectContext
+2.  MakeOutgoingSpec
+3.  ApplyGameplayEffectSpec
+
+1. FGameplayEffectContext包含发起源，发起情况
+2. FGameplayEffectSpec中包含一个GameplayAttributeSet的快照
+3. 将GA应用到目标上
+
 
 > 待补充
