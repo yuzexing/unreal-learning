@@ -37,3 +37,10 @@ DrawDebugSphere(world, location, radius, fragment, FColor::Green, true);
 > 问题：对于include VS2022中创建的头文件 "header.h"，会一直提示找不到文件。很怪的bug
 > 已解决，在vs2022中创建的.h文件默认是在Intermediate文件夹中，所以找不到
 
+
+### GAS调试
+
+按'撇键'进行调试，镜头中心靠近谁，则debug哪个actor
+
+
+
