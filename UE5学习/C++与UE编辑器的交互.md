@@ -32,6 +32,8 @@
 
 ### UFUNCTION宏属性
 
+1. BlueprintCallable 表示蓝图可调用
+2. BlueprintNativeEvent 表示C++提供默认实现，蓝图可以重写该实现
 
 
 #### ``Server``表示只在服务端运行的函数
