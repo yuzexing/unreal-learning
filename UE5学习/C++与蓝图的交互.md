@@ -92,4 +92,16 @@ void AGangsterHUD::BeginPlay()
 注意：不是IInterface上添加
 
 
+### 非常量引用改为输入引脚
 
+前提：在C++中定义蓝图可调用函数时，非常量引用常常作为输出，而不是输入
+
+添加``UPARAM(ref)``，将参数修改为输入
+
+例如：
+```
+	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibrary")
+	static void SetIsCriticalHit(UPARAM(ref) FGameplayEffectContextHandle& ContextHandle, const bool bIsCriticalHit);
+```
+
+> 待补充
