@@ -88,4 +88,13 @@ float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffec
 3. 将GA应用到目标上
 
 
+### AbilitySystemGlobals 的配置方式
+
+1. 配置文件DefaultGame.ini
+2. [/Script/GameplayAbilities.AbilitySystemGlobals]
++AbilitySystemGlobalsClassName="/Script/ProjectName.CustomAbilitySystemGlobalsFileName"
+
+
+
+
 > 待补充
