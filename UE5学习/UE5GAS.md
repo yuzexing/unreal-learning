@@ -107,6 +107,7 @@ float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffec
 
 GA_FireBolt的GE只能在服务端执行，从而导致``Enemy``的``GA_HitReact``在服务端执行，所以``GA_HitReact``不会在客户端执行，只会在服务端执行，通过``GameplayAbility``中的``PlayMontageAndWait``来实现``NetMulticast``，在所有客户端中播放受击蒙太奇动画。
 
+由于是在``UAttributeSet``进行判定并且执行GE，所以很难使用RPC使所有客户端执行GE。
 
 
 > 待补充
