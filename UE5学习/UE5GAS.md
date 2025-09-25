@@ -97,11 +97,16 @@ float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffec
 ### GAS中的网络复制与客户端预测
 
 只在服务端运行的：
-1. AttributeSet
+1. AttributeSet(客户端被复制)
 
 同时在客户端和服务端运行的：
 1. GameplayEffect
-2. GameplayAbility（客户端和服务端）
+2. GameplayAbility（客户端和服务端，客户端预测）
+
+### GA_FireBolt和GA_HitReact的区别
+
+GA_FireBolt的GE只能在服务端执行，从而导致``Enemy``的``GA_HitReact``在服务端执行，所以``GA_HitReact``不会在客户端执行，只会在服务端执行，通过``GameplayAbility``中的``PlayMontageAndWait``来实现``NetMulticast``，在所有客户端中播放受击蒙太奇动画。
+
 
 
 > 待补充
