@@ -101,7 +101,7 @@ float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffec
 
 同时在客户端和服务端运行的：
 1. GameplayEffect
-2. GameplayAbility
+2. GameplayAbility（客户端和服务端）
 
 
 > 待补充
