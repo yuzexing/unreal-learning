@@ -94,7 +94,14 @@ float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffec
 2. [/Script/GameplayAbilities.AbilitySystemGlobals]
 +AbilitySystemGlobalsClassName="/Script/ProjectName.CustomAbilitySystemGlobalsFileName"
 
+### GAS中的网络复制与客户端预测
 
+只在服务端运行的：
+1. AttributeSet
+
+同时在客户端和服务端运行的：
+1. GameplayEffect
+2. GameplayAbility
 
 
 > 待补充
