@@ -98,6 +98,7 @@ float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffec
 
 只在服务端运行的：
 1. AttributeSet(客户端被复制)
+2. 授予GA
 
 同时在客户端和服务端运行的：
 1. GameplayEffect
