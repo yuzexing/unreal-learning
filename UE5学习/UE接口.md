@@ -55,3 +55,12 @@ TScriptInterface<IHightLightInterface> LastFrameHitActor;
 
 > 在``UINTERFACE``中添加``BlueprintType``
 
+### 问题二：BlueprintNativeEvent 是函数在C++的调用方法
+
+1. 无法直接将对象cast为接口后调用
+2. 需要使用静态函数的方式，传入对象调用，然后传入参数
+3. IMyInterface::Execute_FunctionName(TargetObject, ...)
+
+
+
+
