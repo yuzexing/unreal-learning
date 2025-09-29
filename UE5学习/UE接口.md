@@ -51,4 +51,7 @@ TScriptInterface<IHightLightInterface> LastFrameHitActor;
 
 [参考](https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Runtime/CoreUObject/UObject/TScriptInterface)
 
+### 问题一：当接口无法在蓝图中查找到时
+
+> 在``UINTERFACE``中添加``BlueprintType``
 
