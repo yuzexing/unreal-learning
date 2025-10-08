@@ -30,5 +30,6 @@
 2.1 self 指终止自身及其子节点。
 2.2 low priority指终止右侧所有节点。
 
+[文档](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/unreal-engine-behavior-tree-node-reference-decorators)
 
 > 待补充
