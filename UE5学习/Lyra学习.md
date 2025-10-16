@@ -10,11 +10,14 @@
 ### Lyra动画
 
 
+[从网格拷贝动画](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/working-with-modular-characters-in-unreal-engine#%E4%BB%8E%E7%BD%91%E6%A0%BC%E4%BD%93%E5%A4%8D%E5%88%B6%E5%A7%BF%E5%8A%BF)
+
 ### 动画重定向
 
 1. IK也需要添加解算器的根骨骼
 2. 整个骨骼也需要添加一个根骨骼
 3. 2个根骨骼不同
 
+[lyra动画讲解地址](https://www.bilibili.com/video/BV1yG4y187y6/?spm_id_from=333.337.search-card.all.click&vd_source=222dac9e1f77e83867423a3b22e2f313)
 
 
