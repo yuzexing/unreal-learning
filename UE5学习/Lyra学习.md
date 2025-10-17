@@ -27,3 +27,17 @@
 
 [动画博客](https://www.unrealengine.com/zh-CN/tech-blog/adapting-lyra-animation-to-your-ue5-game)
 
+
+### 修改父类默认子组件类型的方法
+
+例如：修改``MovementComponent``为``ULyraCharacterMovementComponent``
+
+```
+ALyraCharacter::ALyraCharacter(const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer.SetDefaultSubobjectClass<ULyraCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
+{
+}
+```
+
+> 通过ObjectInitializer实现
+
