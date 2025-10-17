@@ -11,6 +11,9 @@
 
 1. Linked Animation Layer
 
+2. ``ABP_Mannequin_Base``定义状态转换规则(状态机)，通过接口:``ALI Item Anim Layers``预留``Linked Anim Layer``交由各个子类去实现
+3. ``ABP_ItemAnimLayerBase``实现接口具体逻辑，但不设置具体的``Animation``(这些``Animation``在该蓝图中的变量定义，可以继承给子类)
+4. 其余动画蓝图类继承``ABP_ItemAnimLayerBase``，设置不同的``Animation``，例如手枪,空手的动画蓝图
 
 
 [从网格拷贝动画](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/working-with-modular-characters-in-unreal-engine#%E4%BB%8E%E7%BD%91%E6%A0%BC%E4%BD%93%E5%A4%8D%E5%88%B6%E5%A7%BF%E5%8A%BF)
