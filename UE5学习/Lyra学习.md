@@ -67,5 +67,16 @@ ALyraCharacter::ALyraCharacter(const FObjectInitializer& ObjectInitializer)
 > 通过ObjectInitializer实现
 
 
+### 武器装备流程
+
+1. 首先考虑"武器生成器"``ALyraWeaponSpawner``分配的武器
+2. 武器生成器的球体碰撞触发后，判断是增加子弹还是赋予武器
+3. 调用``GivenWeapon``方法，在``inventory Manager``中找到合适的位置，插入到库存管理器中
+4. 再将武器定义``ULyraEquipmentDefinition``传递给``EquipmentManagerComponent``
+5. 通过武器定义创建武器Actor
+6. 选择合适的AnimationLayer进行链接
+
+
+
 
 
