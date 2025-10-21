@@ -19,9 +19,9 @@
 ### 资产引用
 
 1. ObjectPtr(硬引用)
-2. ObjectClass
+2. ObjectClass(类的硬引用)
 3. SoftObjectPtr(软引用)
-4. 
+4. SoftObjectClass(类的软引用)
 
 1. 举例：在蓝图资产中，如果spawnActor或者new Object，其中指定的Class类型，也会是硬引用！一定要注意
 
