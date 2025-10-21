@@ -26,5 +26,9 @@
 1. 举例：在蓝图资产中，如果spawnActor或者new Object，其中指定的Class类型，也会是硬引用！一定要注意
 
 
+### cook资产
+
+剔除编辑器的内容，保留gameplay
+
 ### Lyra资产
 
