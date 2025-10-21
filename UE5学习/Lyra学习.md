@@ -4,8 +4,29 @@
 
 1. 体验是什么？是lyra自定义的吗？
 > 是的
-2. 
 
+层级关系：
+
+#### Experience包含
+1. GameFeature
+2. DefaultPawnData
+3. 动作集合
+4. 动作
+
+#### LyraPawnData包含
+1. PawnClass
+2. 能力集合
+3. Tag关系，打断，阻塞等类似于优先级的定义
+4. InputAction(IA)与InputTag的映射关系
+5. 相机模式
+
+### GameplayFeature里的Actions - AddAbilities，与Experience中有什么区别？
+
+> 加载方式没有区别，区别在于模块化处理，Experience中的Actions与Experience绑定，GameplayFeature中的Actions与GameplayFeature关联。
+
+### GameplayFeature里的PrimaryAssetScan，与Experience中有什么区别？
+
+> 同上
 
 ### Lyra动画
 
@@ -44,4 +65,7 @@ ALyraCharacter::ALyraCharacter(const FObjectInitializer& ObjectInitializer)
 ```
 
 > 通过ObjectInitializer实现
+
+
+
 
