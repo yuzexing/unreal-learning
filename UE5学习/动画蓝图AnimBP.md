@@ -44,3 +44,10 @@ Actor构造函数，只会在构造CDO时执行一次。后续的Actor构造会�
 [官方文档](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/blend-masks-and-blend-profiles-in-unreal-engine)
 
 
+### 动画蓝图连接层使用蒙太奇
+
+<img width="324" height="57" alt="image" src="https://github.com/user-attachments/assets/ca63eedb-a099-4d1d-87f0-066492bdc993" />
+
+> 需要在连接层中使用主动画蓝图中的蒙太奇计算数据，即可以将蒙太奇动画数据传递到连接层中，并使其播放
+
+
