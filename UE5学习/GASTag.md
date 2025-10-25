@@ -16,8 +16,11 @@
 
 ### GameplayAbilitySpec.DynamicAbilityTag的作用是什么？
 
-1. 
-
 > 待补充
+
+### GA中的 Tags - AssetTags 和 Triggers - Ability Triggers - Trigger Tag 的区别
+
+1. AssetTags表示该GA资源的资产Tag
+2. Trigger Tag表示该GA的触发Tag
 
 
