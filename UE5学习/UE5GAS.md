@@ -110,5 +110,27 @@ GA_FireBolt的GE只能在服务端执行，从而导致``Enemy``的``GA_HitReact
 
 由于是在``UAttributeSet``进行判定并且执行GE，所以很难使用RPC使所有客户端执行GE。
 
+### Gameplay Cue的类型以及区别
+
+> Gameplay Cue用于视觉效果/音频效果等反馈效果
+
+### Gameplay Cue Path
+
+指定文件夹，用于加快GCN搜索的速度，避免全局文件搜索
+
+### Gameplay Cue Notify Actor
+
+#### Gameplay Cue Notify brustLatent
+
+#### Gameplay Cue Notify Looping
+
+### Gameplay Cue Notify Static
+
+GCN的静态函数，不会创造对象
+
+#### Gameplay Cue Notify brust
+
+#### Gameplay Cue Notify brust
+
 
 > 待补充
