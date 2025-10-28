@@ -120,6 +120,8 @@ GA_FireBolt的GE只能在服务端执行，从而导致``Enemy``的``GA_HitReact
 
 ### Gameplay Cue Notify Actor
 
+> 是Actor的子类，会创建Actor，需要清楚Actor或者自动销毁，可以执行延迟等效果
+
 #### Gameplay Cue Notify brustLatent
 
 #### Gameplay Cue Notify Looping
@@ -129,6 +131,11 @@ GA_FireBolt的GE只能在服务端执行，从而导致``Enemy``的``GA_HitReact
 GCN的静态函数，不会创造对象
 
 #### Gameplay Cue Notify brust
+
+> GCN staic的子类，无法执行循环，延迟等效果，必须立即执行
+> 拥有GCN Effect，可以执行爆炸粒子效果，声音，镜头，设备效果/brust decal
+
+> brust decal 是材质的修改，例如击碎效果，弹孔
 
 #### Gameplay Cue Notify brust
 
