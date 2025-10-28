@@ -85,7 +85,7 @@ float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffec
 
 1. FGameplayEffectContext包含发起源，发起情况
 2. FGameplayEffectSpec中包含一个GameplayAttributeSet的快照，GESpec创造好后，即准备好施加到任何目标上
-3. 将GA应用到目标上
+3. 将GE应用到目标上
 
 
 ### AbilitySystemGlobals 的配置方式
