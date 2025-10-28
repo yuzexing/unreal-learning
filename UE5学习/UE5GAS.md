@@ -114,6 +114,10 @@ GA_FireBolt的GE只能在服务端执行，从而导致``Enemy``的``GA_HitReact
 
 > Gameplay Cue用于视觉效果/音频效果等反馈效果
 
+大类分为：
+1. GCN Staic 不会创建实例，对应 instant 和 periodic的GE，不需要关心生命周期
+2. GCN Actor 拥有实例，需要绑定一个Actor，对应infinity和has duration的GE
+
 ### Gameplay Cue Path
 
 指定文件夹，用于加快GCN搜索的速度，避免全局文件搜索
@@ -128,6 +132,8 @@ GA_FireBolt的GE只能在服务端执行，从而导致``Enemy``的``GA_HitReact
 
 #### Gameplay Cue Notify Looping
 
+> 用于处理连续循环的效果，通过添加/删除来控制GCN
+
 ### Gameplay Cue Notify Static
 
 GCN的静态函数，不会创造对象
@@ -138,8 +144,6 @@ GCN的静态函数，不会创造对象
 > 拥有GCN Effect，可以执行爆炸粒子效果，声音，镜头，设备效果/Burst decal
 
 > Burst decal 是材质的修改，例如击碎效果，弹孔
-
-#### Gameplay Cue Notify Burst
 
 ### local Gameplay Cue Notify
 
