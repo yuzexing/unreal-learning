@@ -122,7 +122,9 @@ GA_FireBolt的GE只能在服务端执行，从而导致``Enemy``的``GA_HitReact
 
 > 是Actor的子类，会创建Actor，需要清楚Actor或者自动销毁，可以执行延迟等效果
 
-#### Gameplay Cue Notify brustLatent
+#### Gameplay Cue Notify BurstLatent
+
+> 可以做latent thing 例如延迟/时间线等的Burst
 
 #### Gameplay Cue Notify Looping
 
@@ -130,14 +132,40 @@ GA_FireBolt的GE只能在服务端执行，从而导致``Enemy``的``GA_HitReact
 
 GCN的静态函数，不会创造对象
 
-#### Gameplay Cue Notify brust
+#### Gameplay Cue Notify Burst
 
 > GCN staic的子类，无法执行循环，延迟等效果，必须立即执行
-> 拥有GCN Effect，可以执行爆炸粒子效果，声音，镜头，设备效果/brust decal
+> 拥有GCN Effect，可以执行爆炸粒子效果，声音，镜头，设备效果/Burst decal
 
-> brust decal 是材质的修改，例如击碎效果，弹孔
+> Burst decal 是材质的修改，例如击碎效果，弹孔
 
-#### Gameplay Cue Notify brust
+#### Gameplay Cue Notify Burst
 
+### local Gameplay Cue Notify
+
+什么时候用非复制的本地GCN?
+
+> 当一个技能已经被复制了，例如火球术的火球已经是被复制的了 hit后，会播放声音，那么这个不需要再复制了
+
+> 在GameplayCueManager中，有可以调用非复制的 GCN 函数
+
+```
+/** 
+	 *  Convenience methods for invoking non-replicated gameplay cue events. 
+	 * 
+	 *	We want to avoid exposing designers the choice of "is this gameplay cue replicated or non-replicated?".
+	 *	We want to make the decision for them in most cases:
+	 *	- Abilities will always use replicated GameplayCue events because they are not executed on simulated proxies.
+	 *	- Animations always use non-replicated GameplayCue events because they are always executed on simulated proxies.
+	 *	
+	 *  Sometimes it will be useful to give designers both options: in actor classes where there are many possible use cases.
+	 *  Still, we should keep the choice confined to the actor class, and not globally.  E.g., Don't add both choices to the function library
+	 *  since they would appear everywhere. Add the choices to the actor class so they only appear there.
+	 */
+	static UE_API void AddGameplayCue_NonReplicated(AActor* Target, const FGameplayTag GameplayCueTag, const FGameplayCueParameters& Parameters);
+	static UE_API void RemoveGameplayCue_NonReplicated(AActor* Target, const FGameplayTag GameplayCueTag, const FGameplayCueParameters& Parameters);
+	static UE_API void ExecuteGameplayCue_NonReplicated(AActor* Target, const FGameplayTag GameplayCueTag, const FGameplayCueParameters& Parameters);
+
+```
 
 > 待补充
