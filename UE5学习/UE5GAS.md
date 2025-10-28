@@ -172,4 +172,6 @@ GCN的静态函数，不会创造对象
 
 ```
 
+[知乎GCN](https://zhuanlan.zhihu.com/p/688299121)
+
 > 待补充
