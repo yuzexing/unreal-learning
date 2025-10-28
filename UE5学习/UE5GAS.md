@@ -174,4 +174,8 @@ GCN的静态函数，不会创造对象
 
 [知乎GCN](https://zhuanlan.zhihu.com/p/688299121)
 
+### GA产生的Hit Reuslt 如何通过GE传递到GCTag中的GCN？
+
+ApplyGameplayEffectToTarget中有一个TargetData - TargetDataHandleStruct
+
 > 待补充
