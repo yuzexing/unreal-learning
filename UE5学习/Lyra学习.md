@@ -77,6 +77,20 @@ ALyraCharacter::ALyraCharacter(const FObjectInitializer& ObjectInitializer)
 6. 选择合适的AnimationLayer进行链接
 
 
+### lyra相机
+
+结构体：
+1. camera mode
+2. camera mode view
+3. camera mode stack
+4. LyraPenetrationAvoidanceFeeler 避免相机穿透的结构体Feeler
+5. LyraCameraComponent 继承自 UCameraComponent
+6. CameraMode_ThirdPerson 继承自 Cameramode
+7. LyraPlayerCameraManager 继承自 PlayerComeraManager
+8. 
+
+
+[知乎解析](https://zhuanlan.zhihu.com/p/10432602003)
 
 
 
