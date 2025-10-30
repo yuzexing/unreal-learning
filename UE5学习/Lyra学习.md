@@ -87,7 +87,15 @@ ALyraCharacter::ALyraCharacter(const FObjectInitializer& ObjectInitializer)
 5. LyraCameraComponent 继承自 UCameraComponent
 6. CameraMode_ThirdPerson 继承自 Cameramode
 7. LyraPlayerCameraManager 继承自 PlayerComeraManager
-8. 
+8. PlayerComeraManager 更新 Camera POV信息，依靠于CameraActor的CameraComponent的GetCameraView
+9. 如果没有CameraActor，查看Camera Style选择是保持原有的POV还是使用默认设置-ThirdPerson/FreeCam/Fixed
+10. 所以LyraPlayerCameraManager所以来的CameraInfo，依赖于LyraCameraComponent 的 GetCameraView 函数
+11. GetCameraView函数中调用了UpdateCameraModes，根据cameraModeStack的相机类型信息进行混合，更新POV(DesiredView)
+
+
+### camera基础知识
+
+
 
 
 [知乎解析](https://zhuanlan.zhihu.com/p/10432602003)
