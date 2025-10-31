@@ -96,9 +96,28 @@ ALyraCharacter::ALyraCharacter(const FObjectInitializer& ObjectInitializer)
 ### camera基础知识
 
 
-
-
 [知乎解析](https://zhuanlan.zhihu.com/p/10432602003)
+
+
+### lyra加载流程（附带Actor生命周期）
+
+1. World🡒InitializeActorsForPlay 初始化所有世界中的Actor的组件（包括GameMode，GameMode是AInfo的子类，是Actor的子类）
+2. 初始化游戏模式(GameMode->InitGame())，lyraGameMode中通过资源管理器加载了World Setting中指定的Experience
+3. 将World中的Level逐个RouteActorInitialize，每一个Level初始化其中的Actor
+4. 会调用Level中Actor中的PreInitializeComponents，InitializeComponents，PostInitializeComponents 来初始化所有组件
+5. 
+
+
+```
+RouteActorInitialize的状态
+enum class ERouteActorInitializationState : uint8
+	{
+		Preinitialize,
+		Initialize,
+		BeginPlay,
+		Finished
+	};
+```
 
 
 
