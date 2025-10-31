@@ -101,11 +101,16 @@ ALyraCharacter::ALyraCharacter(const FObjectInitializer& ObjectInitializer)
 
 ### lyra加载流程（附带Actor生命周期）
 
-1. World🡒InitializeActorsForPlay 初始化所有世界中的Actor的组件（包括GameMode，GameMode是AInfo的子类，是Actor的子类）
-2. 初始化游戏模式(GameMode->InitGame())，lyraGameMode中通过资源管理器加载了World Setting中指定的Experience
+1. **World**🡒InitializeActorsForPlay 初始化所有世界中的Actor的组件（包括GameMode，GameMode是AInfo的子类，是Actor的子类）
+2. 初始化游戏模式(GameMode->InitGame())，
 3. 将World中的Level逐个RouteActorInitialize，每一个Level初始化其中的Actor
 4. 会调用Level中Actor中的PreInitializeComponents，InitializeComponents，PostInitializeComponents 来初始化所有组件
-5. 
+5. 然后对每个Actor发送BeginPlay事件
+6. 在GameMode初始化时，会监听下一帧的事件，进行初始化，lyraGameMode中通过资源管理器加载了World Setting中指定的Experience
+7. 同时还登录服务器TryDedicatedServerLogin
+8. Exprience加载后，调用GameState->SetCurrentExperience，设置Experience，GameState开始加载Exprience（StartExperienceLoad）
+9. GameMode加载完成Experience后，会开始遍历所有PlayerController，进行RestartPlayer
+10. 
 
 
 ```
