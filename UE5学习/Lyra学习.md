@@ -99,6 +99,12 @@ ALyraCharacter::ALyraCharacter(const FObjectInitializer& ObjectInitializer)
 [知乎解析](https://zhuanlan.zhihu.com/p/10432602003)
 
 
+### NameplateManagerComponent和NameplateSouce的关系
+
+1. 监听中的NameplateManagerComponent 一定是一个LocalPlayerController的组件
+2. NameplateSouce是所有Character都会添加的
+3. NameplateManagerComponent 用于管理/注册/取消注册其他的Actor身上的Nameplate
+
 ### lyra加载流程（附带Actor生命周期）
 
 1. **World**🡒InitializeActorsForPlay 初始化所有世界中的Actor的组件（包括GameMode，GameMode是AInfo的子类，是Actor的子类）
@@ -110,7 +116,6 @@ ALyraCharacter::ALyraCharacter(const FObjectInitializer& ObjectInitializer)
 7. 同时还登录服务器TryDedicatedServerLogin
 8. Exprience加载后，调用GameState->SetCurrentExperience，设置Experience，GameState开始加载Exprience（StartExperienceLoad）
 9. GameMode加载完成Experience后，会开始遍历所有PlayerController，进行RestartPlayer
-10. 
 
 
 ```
@@ -133,6 +138,8 @@ enum class ERouteActorInitializationState : uint8
 5. 在广播add时，将自己的Pawn指针作为payload传递给接受者NameplateManagerComponent（NMC），
 6. NMC负责为每一个Pawn注册他的铭牌Widget
 
+1. indicator Descriptor 作为一个结构体，将Widget和indicator所需要的目标信息绑定
+2. 
 
 
 
