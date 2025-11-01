@@ -124,5 +124,15 @@ enum class ERouteActorInitializationState : uint8
 	};
 ```
 
+### Nameplate的显示逻辑
+
+1. 在Experience里的ActionSet为Character添加 NameplateSource 这个ControllerComponent
+2. 同样的位置，为PlayerController添加NameplateManagerComponent
+3. 在BeginPlay时，进行消息的广播（名牌添加），接受者为Local的PlayerController
+4. 然后，监听PlayerController广播消息- Discover，用于新加入的PlayerController或者避免产生顺序问题
+5. 在广播add时，将自己的Pawn指针作为payload传递给接受者NameplateManagerComponent（NMC），
+6. NMC负责为每一个Pawn注册他的铭牌Widget
+
+
 
 
