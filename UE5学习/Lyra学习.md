@@ -139,7 +139,13 @@ enum class ERouteActorInitializationState : uint8
 6. NMC负责为每一个Pawn注册他的铭牌Widget
 
 1. indicator Descriptor 作为一个结构体，将Widget和indicator所需要的目标信息绑定
-2. 
+2. NameplateManagerComponent 将 indicator 渲染到屏幕空间上
 
+### 组件初始化状态机
 
+[游戏框架组件管理器/IGameFrameworkInitStateInterface](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/game-framework-component-manager-in-unreal-engine?application_version=5.6)
+
+1. 主要是用于网络复制情况下的角色组件初始化
+2. 定义每一个组件的状态以及推进状态所需要的条件，便于初始化组件，避免竞争条件或者延迟循环
+3. 
 
