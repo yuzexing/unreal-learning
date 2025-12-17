@@ -54,7 +54,10 @@
 #### ClientUpdatePositionAfterServerUpdate 是什么？
 
 ``ClientUpdatePositionAfterServerUpdate``是做服务端矫正后的重播，通过``MoveAutonomous``在服务端提供的起点，重新快速的走一遍SavedMove的数据，对client来说是一瞬间的事
-GetPredictionData_Client_Character 是什么？
+
+##### GetPredictionData_Client_Character 是什么？
+
+就是存储 SavedMoves、PendingMove、LastAckedMove 等数据的
 
 
 
