@@ -42,8 +42,8 @@ UE5采用C/S架构，对于**单人游戏**或**本地多人游戏**，玩家输
 
 ### Remote Role & Local Role
 
-1. ``Local Role``，用于区分客户端上的控制身份
-2. ``Remote Role``，用于区分服务端上的控制身份
+1. ``Local Role``，表示当前``Actor``在当前机器上，是什么角色
+2. ``Remote Role``，表示当前``Actor``在远端连接的机器上，是什么角色（远端的机器，是怎么看待这个``Actor``的）
 
 通过这两个属性，能够知道：
 1. 谁拥有Actor的主控权(Authority)
