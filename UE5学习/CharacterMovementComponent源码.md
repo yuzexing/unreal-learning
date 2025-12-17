@@ -40,11 +40,15 @@
 1. 客户端用户产生输入事件
 2. 客户端CMC Tick事件，消费输入事件
 3. 进行SavedMove回放
-4. 对于 1.本地控制 2.模拟物理的没有controller的character 3.播放RootMotion的没有Controller的Character
-5. 进行``ControlledCharacterMove``
-6. 客户端CMC: ControlledCharacterMove -> 服务器上的直接``PerformMovement``;本地的则``ReplicateMoveToServer``
-7. CMC::ReplicateMoveToServer -> CMC::CallServerMovePacked -> CMC::ServerMovePacked_ClientSend
-8. CMC::ServerMovePacked_ClientSend -> Character::ServerMovePacked_Implementation -> CMC::ServerMovePacked_ServerReceive ->
+4. 对于 自主代理和自主控制的Character 且 1.本地控制 2.模拟物理的没有controller的character 3.播放RootMotion的没有Controller的Character
+5. 进行``ControlledCharacterMove``，如果是服务器上直接``PerformMovement``;客户端本地的则``ReplicateMoveToServer``
+6. 在本地的``ReplicateMoveToServer``中，执行了 ``PerformMovement``
+7. 对于服务端的模拟代理，1. 更新BasedMovement，不然可能跟不上基座。 2. 平滑展示客户端位置
+8. 对于 模拟代理，进行模拟tick ``SimulatedTick``
+9. 
+10. 客户端CMC: ControlledCharacterMove -> 服务器上的直接``PerformMovement``;本地的则``ReplicateMoveToServer``
+11. CMC::ReplicateMoveToServer -> CMC::CallServerMovePacked -> CMC::ServerMovePacked_ClientSend
+12. CMC::ServerMovePacked_ClientSend -> Character::ServerMovePacked_Implementation -> CMC::ServerMovePacked_ServerReceive ->
 
 
 #### ClientUpdatePositionAfterServerUpdate 是什么？
