@@ -38,9 +38,13 @@
 #### 函数调用过程
 
 1. 客户端用户产生输入事件
-2. 客户端CMC PerformMove
-3. CMC::ReplicateMoveToServer -> CMC::CallServerMovePacked -> CMC::ServerMovePacked_ClientSend
-4. CMC::ServerMovePacked_ClientSend -> Character::ServerMovePacked_Implementation -> CMC::ServerMovePacked_ServerReceive ->
+2. 客户端CMC Tick事件，消费输入事件
+3. 进行SavedMove回放
+4. 对于 1.本地控制 2.模拟物理的没有controller的character 3.播放RootMotion的没有Controller的Character
+5. 进行``ControlledCharacterMove``
+6. 客户端CMC: ControlledCharacterMove -> 服务器上的直接``PerformMovement``;本地的则``ReplicateMoveToServer``
+7. CMC::ReplicateMoveToServer -> CMC::CallServerMovePacked -> CMC::ServerMovePacked_ClientSend
+8. CMC::ServerMovePacked_ClientSend -> Character::ServerMovePacked_Implementation -> CMC::ServerMovePacked_ServerReceive ->
 
 
 #### ClientUpdatePositionAfterServerUpdate 是什么？
