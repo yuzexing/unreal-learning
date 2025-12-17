@@ -20,3 +20,33 @@
 #### 关于性能优化的点：
 1. FScopedCapsuleMovementUpdate 创建了一个新的移动范围，在此范围内移动的传播可以推迟到最外层不延迟更新的范围结束。该范围内的移动会避免更新，如 UpdateBounds（）、OnUpdateTransform（）、UpdatePhysicsVolume（）、UpdateChildTransforms（） 等，直到移动被提交
 2. 总的来说是一种批量更新的操作，减少更新广播次数，减少检测次数
+
+
+### SavedMove代码
+
+#### 流程
+
+1. 客户端发起
+2. 服务段接受，验证，发送校验信息给客户端
+3. 客户端校正或者直接清除待验证的SavedMove
+
+#### 注意点
+
+1. 通过Character发送RPC，避免CMC的组件RPC开销
+
+
+#### 函数调用过程
+
+1. 客户端用户产生输入事件
+2. 客户端CMC PerformMove
+3. CMC::ReplicateMoveToServer -> CMC::CallServerMovePacked -> CMC::ServerMovePacked_ClientSend
+4. CMC::ServerMovePacked_ClientSend -> Character::ServerMovePacked_Implementation -> CMC::ServerMovePacked_ServerReceive ->
+
+
+#### ClientUpdatePositionAfterServerUpdate 是什么？
+
+``ClientUpdatePositionAfterServerUpdate``是做服务端矫正后的重播，通过``MoveAutonomous``在服务端提供的起点，重新快速的走一遍SavedMove的数据，对client来说是一瞬间的事
+GetPredictionData_Client_Character 是什么？
+
+
+
