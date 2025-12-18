@@ -59,5 +59,13 @@
 
 就是存储 SavedMoves、PendingMove、LastAckedMove 等数据的
 
+#### SavedMoves合并和发送的规则
+
+1. SavedMoves 包含了所有未被服务器确认的Move数据
+2. PendingMove 包含了需要延迟发送的Move（合并发送或到点直接发送）
+3. LastAckedMove 是最后一个由服务器确认的Move
+4. SavedMoves 包含了 正在发送 + 延迟发送的Move
+
+
 
 
