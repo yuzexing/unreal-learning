@@ -65,7 +65,7 @@
 2. PendingMove 包含了需要延迟发送的Move（合并发送或到点直接发送）
 3. LastAckedMove 是最后一个由服务器确认的Move
 4. SavedMoves 包含了 正在发送 + 延迟发送的Move
-
+5. 根据是否应该打包发送，调用不同的函数``CallServerMove``还是``CallServerMove``
 
 
 
