@@ -109,5 +109,9 @@
 2. OldMove（可选）
 3. PendingMove（可选）
 
+#### 为什么FRootMotionSourceGroup 需要被存到SavedMove里？
+
+用于服务端校准客户端RootMotionSourcePosition时，使用的服务端 RootMotionSource （ClientAdjustRootMotionSourcePosition_Implementation中）
+
 
 
