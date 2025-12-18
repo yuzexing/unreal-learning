@@ -47,7 +47,7 @@
 8. 对于 模拟代理，进行模拟tick ``SimulatedTick``
 9. 
 10. 客户端CMC: ControlledCharacterMove -> 服务器上的直接``PerformMovement``;本地的则``ReplicateMoveToServer``
-11. CMC::ReplicateMoveToServer -> CMC::CallServerMovePacked -> CMC::ServerMovePacked_ClientSend
+11. 从客户端发起来看： CMC::ReplicateMoveToServer -> CMC::CallServerMovePacked -> CMC::ServerMovePacked_ClientSend
 12. CMC::ServerMovePacked_ClientSend -> Character::ServerMovePacked_Implementation -> CMC::ServerMovePacked_ServerReceive ->
 
 
@@ -61,11 +61,36 @@
 
 #### SavedMoves合并和发送的规则
 
-1. SavedMoves 包含了所有未被服务器确认的Move数据
-2. PendingMove 包含了需要延迟发送的Move（合并发送或到点直接发送）
-3. LastAckedMove 是最后一个由服务器确认的Move
+定义
+1. SavedMoves：数组， 包含了所有未被服务器确认的Move数据
+2. PendingMove：指针，是需要延迟发送的Move（合并发送或到点直接发送）
+3. LastAckedMove：指针，是最后一个由服务器确认的Move
 4. SavedMoves 包含了 正在发送 + 延迟发送的Move
 5. 根据是否应该打包发送，调用不同的函数``CallServerMove``还是``CallServerMove``
+
+数据生成逻辑：
+1. 每一帧中，根据Character的``PerformMovement``后的信息创建一个NewMove
+2. SavedMoves保存每一帧产生的NewMove
+3. PendingMove存在时，将每一帧的NewMove进行合并(如果允许合并)；如果不存在，则将NewMove作为PendingMove
+4. 如果不允许合并呢？
+5. tick函数结束时，清除PendingMove的指针
+
+合并：
+
+1. 当NewMove不是重要的Move
+2. NewMove和PenddingMove可以合并
+3. 将PenddingMove最后一个
+
+
+11. 当NewMove不是重要的Move
+2. NewMove和PenddingMove可以合并
+3. 将PenddingMove最后一个
+
+#### 服务器验证客户端运动的必要条件
+
+1. OldMove
+2. NewMove
+3. PendingMove
 
 
 
