@@ -48,7 +48,24 @@
 9. 
 10. 客户端CMC: ControlledCharacterMove -> 服务器上的直接``PerformMovement``;本地的则``ReplicateMoveToServer``
 11. 从客户端发起来看： CMC::ReplicateMoveToServer -> CMC::CallServerMovePacked -> CMC::ServerMovePacked_ClientSend
-12. CMC::ServerMovePacked_ClientSend -> Character::ServerMovePacked_Implementation -> CMC::ServerMovePacked_ServerReceive ->
+12. CMC::ServerMovePacked_ClientSend -> Character::ServerMovePacked -> CMC::ServerMovePacked_ServerReceive -> CMC::ServerMove_HandleMoveData
+13. -> CMC:: SetCurrentNetworkMoveData & ServerMove_PerformMovement
+
+#### ReplicateMoveToServer 作用
+
+保存运动轨迹，执行运动函数，将运动信息发送给服务端
+
+#### CallServerMovePacked
+
+将客户端运动数据压缩，转化为比特流，通过unreliable RPC传送给服务端
+
+#### ServerMovePacked_ServerReceive
+
+服务端接收运动数据，进行Bit流读取，还原数据
+
+### ServerMove_HandleMoveData
+
+正式处理数据
 
 
 #### ClientUpdatePositionAfterServerUpdate 是什么？
@@ -72,7 +89,7 @@
 1. 每一帧中，根据Character的``PerformMovement``后的信息创建一个NewMove
 2. SavedMoves保存每一帧产生的NewMove
 3. PendingMove存在时，将每一帧的NewMove进行合并(如果允许合并)；如果不存在，则将NewMove作为PendingMove
-4. 如果不允许合并呢？
+4. 如果不允许合并呢？那么将NewMove和PendingMove一起发送
 5. tick函数结束时，清除PendingMove的指针
 
 合并：
