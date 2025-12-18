@@ -95,8 +95,8 @@
 合并：
 
 1. 当NewMove不是重要的Move
-2. NewMove和PenddingMove可以合并
-3. 将PenddingMove最后一个
+2. 则NewMove和PenddingMove可以合并
+3. 将PenddingMove直接修改为NewMove
 
 
 11. 当NewMove不是重要的Move
@@ -105,9 +105,9 @@
 
 #### 服务器验证客户端运动的必要条件
 
-1. OldMove
-2. NewMove
-3. PendingMove
+1. NewMove（必要）
+2. OldMove（可选）
+3. PendingMove（可选）
 
 
 
