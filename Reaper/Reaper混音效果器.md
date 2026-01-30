@@ -56,6 +56,9 @@ Room Size：房屋大小，房屋越大，声音越空旷
 Stero Width：如果使用Mino输出，则最好设置为0；如果是立体音，可以使用该参数增加空间感。
 Initial Delay：回响启动的延迟时间，用于保证原声先出来，
 
+### 限制器 ReaLimit
+
+防止爆音，一般加载Master track上，降低即将到来的大音量
 
 
 
