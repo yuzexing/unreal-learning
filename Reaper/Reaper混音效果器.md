@@ -64,12 +64,14 @@ Initial Delay：回响启动的延迟时间，用于保证原声先出来，
 
 ### 失真 Distortion
 
-使声音失真
+使声音失真。
 
 Gain：失真的大小
-Hardness：
-Max Volumn：
-Channel Mode：Stero；left；right
+Hardness：声音的硬度。决定削波（Clipping）的形状。
+- 数值小（Soft Clip）：软削波，模拟电子管失真，声音较暖、边缘较圆润。
+- 数值大（Hard Clip）：硬削波，模拟晶体管或法兹（Fuzz）失真，声音尖锐、有颗粒感、更刺耳。
+Max Volume：最大音量，因为失真会让音量变大，用来限制电平防止爆音。
+Channel Mode：Stero(立体音处理)；left/right(只处理左声道或右声道。)
 
 ### 噪声门 ReaGate
 用于消除低于特定音量的声音，常用于去除录音中的背景底噪、呼吸声或乐器间隙的杂音。
