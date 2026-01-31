@@ -62,6 +62,15 @@ Initial Delay：回响启动的延迟时间，用于保证原声先出来，
 
 补充：
 
+### 失真 Distortion
+
+使声音失真
+
+Gain：失真的大小
+Hardness：
+Max Volumn：
+Channel Mode：Stero；left；right
+
 ### 噪声门 ReaGate
 用于消除低于特定音量的声音，常用于去除录音中的背景底噪、呼吸声或乐器间隙的杂音。
 
