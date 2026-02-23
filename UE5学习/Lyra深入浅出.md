@@ -1,4 +1,4 @@
-# Lyra学习
+# Lyra深入浅出
 
 ### Experience
 
@@ -148,4 +148,16 @@ enum class ERouteActorInitializationState : uint8
 1. 主要是用于网络复制情况下的角色组件初始化
 2. 定义每一个组件的状态以及推进状态所需要的条件，便于初始化组件，避免竞争条件或者延迟循环
 3. 
+
+### LyraCosmetics的实现方式
+
+核心组件：``ULyraControllerComponent_CharacterParts``和``ULyraPawnComponent_CharacterParts``（(蓝图叫B_PickRandomCharacter和B_MannequinPawnCosmetics)
+核心数据：``FLyraCharacterPartList``
+
+ULyraControllerComponent_CharacterParts在服务端创建，负责指定生成的Parts，是controller组件
+B_MannequinPawnCosmetics在服务端创建，同步到客户端，同步后，通过函数``SpawnActorForEntry``添加``ChildActorComponent``到根场景组件下。
+
+
+
+
 
