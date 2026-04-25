@@ -45,5 +45,34 @@
 > 3. EQS中有一个Perceived Actor生成器，可以指定AISense的类型，来过滤刺激源
 > 4. EQS在BTT中使用，EQS下一般包含一个生成器，生成器中指定上下文(context场景)来提供备选的Actor，再通过Test打分(Tester也需要指定上下文)，返回给BTT中
 
+### 如何在AIsense中设置只识别敌人？
+
+在AIController中，继承IGenericTeamAgentInterface，设置自己的ID和对不同的队伍的敌对状态
+```
+
+ETeamAttitude::Type ALyraPlayerBotController::GetTeamAttitudeTowards(const AActor& Other) const
+{
+	if (const APawn* OtherPawn = Cast<APawn>(&Other)) {
+
+		if (const ILyraTeamAgentInterface* TeamAgent = Cast<ILyraTeamAgentInterface>(OtherPawn->GetController()))
+		{
+			FGenericTeamId OtherTeamID = TeamAgent->GetGenericTeamId();
+
+			//Checking Other pawn ID to define Attitude
+			if (OtherTeamID.GetId() != GetGenericTeamId().GetId())
+			{
+				return ETeamAttitude::Hostile;
+			}
+			else
+			{
+				return ETeamAttitude::Friendly;
+			}
+		}
+	}
+
+	return ETeamAttitude::Neutral;
+}
+
+```
 
 > 待补充
