@@ -2,7 +2,7 @@
 
 ### AIController
 
-只在服务端运行
+只在服务端运行，PossesedBy函数也仅在服务端执行
 
 ### 行为树各个模块的功能
 
@@ -31,5 +31,19 @@
 2.2 low priority指终止右侧所有节点。
 
 [文档](https://dev.epicgames.com/documentation/zh-cn/unreal-engine/unreal-engine-behavior-tree-node-reference-decorators)
+
+### 环境查询系统EQS
+
+1. EQS在哪里使用？
+2. EQS如何查询指定的Actor？
+3. EQS如何利用AIPerception感知场景？
+4. EQS的工作方式是什么？
+
+ 
+> 1. EQS在BT中，执行BTT，Run EQS处执行
+> 2. EQS可以使用Perceived Actor生成器或者Actor Of Class生成器来获取Context下的Actor，在使用测试器Test过滤Actor
+> 3. EQS中有一个Perceived Actor生成器，可以指定AISense的类型，来过滤刺激源
+> 4. EQS在BTT中使用，EQS下一般包含一个生成器，生成器中指定上下文(context场景)来提供备选的Actor，再通过Test打分(Tester也需要指定上下文)，返回给BTT中
+
 
 > 待补充
