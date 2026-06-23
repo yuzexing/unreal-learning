@@ -362,33 +362,6 @@ Unreal Insights 是分析 UE 性能问题的重要工具
 
 ---
 
-### 性能优化学习重点
-
-建议重点关注：
-
-* Game Thread
-* Render Thread
-* GPU
-* Collision
-* Niagara
-* Animation
-* Skeletal Mesh
-* MetaHuman
-* LOD
-* HLOD
-* HISM
-* Nanite
-* Shadow
-* Lighting
-* Object Pool
-* Network
-* AI
-* Navigation
-* Unreal Insights
-* Stat 命令
-
----
-
 ## 九、推荐 YouTube 博主与系列教程
 
 ### LeafBranchGames
