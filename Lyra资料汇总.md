@@ -76,14 +76,6 @@
 GameFeature 是理解 Lyra 架构的关键入口之一
 Lyra 里很多玩法内容并不是直接写在主项目里，而是通过 GameFeature Plugin 的方式组织和加载
 
-学习重点：
-
-* GameFeature Plugin 是什么
-* GameFeatureData 的作用
-* GameFeatureAction 如何添加组件、输入、Ability 和 UI
-* 为什么 Lyra 把玩法拆到插件里
-* 如何创建自己的 GameFeature Plugin
-
 ---
 
 ## 三、Experience 相关资料
@@ -105,15 +97,6 @@ Lyra 里很多玩法内容并不是直接写在主项目里，而是通过 GameF
 
 Experience 是 Lyra 里非常重要的概念
 它决定一局游戏加载什么 GameFeature、PawnData、Ability、输入、UI 和游戏规则
-
-学习重点：
-
-* Experience 和 GameMode 的关系
-* LyraExperienceDefinition
-* LyraExperienceActionSet
-* PawnData
-* 如何创建一个新的 Experience
-* 如何让自己的模式加载指定角色、输入和 Ability
 
 ---
 
