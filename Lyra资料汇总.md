@@ -358,7 +358,7 @@ Unreal Insights 是分析 UE 性能问题的重要工具
 
 推荐理由：
 
-适合学习角色骨骼、MetaHuman 和 Skeletal Mesh 相关优化
+适合学习角色骨骼、MetaHuman 和 Skeletal Mesh 相关优化，尤其是metahuman的骨骼
 
 ---
 
