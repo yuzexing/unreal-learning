@@ -266,12 +266,6 @@ Unreal Insights 是分析 UE 性能问题的重要工具
 
 ---
 
-### UFSH 2025 性能优化
-
-* [Bilibili：性能优化 UFSH 2025](https://www.bilibili.com/video/BV125aGzVEGA)
-
----
-
 ### 碰撞优化
 
 * [Bilibili：碰撞优化](https://www.bilibili.com/video/BV1FAiPBeEcJ)
@@ -282,9 +276,9 @@ Unreal Insights 是分析 UE 性能问题的重要工具
 
 ---
 
-### 性能优化总结
+### UFSH 2025 性能优化讲座
 
-* [Bilibili：性能优化总结](https://www.bilibili.com/video/BV1k44mzWEvq)
+* [Bilibili：性能优化讲座](https://www.bilibili.com/video/BV1k44mzWEvq)
 
 推荐理由：
 
