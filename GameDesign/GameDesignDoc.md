@@ -27,3 +27,8 @@
 <img width="726" height="944" alt="image" src="https://github.com/user-attachments/assets/1e5d8e13-3ece-4c72-a02d-f5b732524203" />
 
 尽量适配手柄，减少玩家操作复杂度，保留最主要最核心的操作
+
+
+### 策划美术提升
+<img width="587" height="516" alt="image" src="https://github.com/user-attachments/assets/d71b270f-ed95-4395-a008-09b0e99d8b09" />
+
