@@ -28,6 +28,10 @@
 
 尽量适配手柄，减少玩家操作复杂度，保留最主要最核心的操作
 
+### 玩家通过实验学习核心玩法，实验结果通过积极反馈和消极反馈结果
+
+
+
 
 ### 策划美术提升
 <img width="587" height="516" alt="image" src="https://github.com/user-attachments/assets/d71b270f-ed95-4395-a008-09b0e99d8b09" />
